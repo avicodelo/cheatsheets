@@ -4,6 +4,6 @@ This is the checklist of tasks to make a good Readme:
 - [ ] Project title
 - [ ] Description
 - [ ] Getting started
-    - - [ ] Prerequisites
-    - - [ ] Instal
+    -  [ ] Prerequisites
+    -  [ ] Install
 ## PROBANDO EL HANDOVER CON PULL
