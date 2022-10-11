@@ -1,0 +1,106 @@
+**Conceptos generales
+    Terminal / Consola : Entorno de entrada/salida de texto, ejecutada por el programa konsola
+    Shell Bash : Intérprete de la línea de comandos, se encarga de ejecutarlos.
+    $ : prompt, indicador para introducir el siguiente comando.
+    Comando: programa que será ejecutado por Bash
+    # formato estándar de un comando: $ comando [[-]opción( es)] [argumento(s) de opción(es)]
+        *[-]opción(es): es uno o más modificadores que cambian el comportamiento de un comando.
+        *[argumento(s) de opción(es)]: indica los objetos sobre los que va a operar el comando
+    # info: Si accedemos como #root podemos hacer o deshacer
+            lo que queramos dentro del sistema, ¡incluido borrarlo!
+
+**Comandos básicos
+
+    cd : Cambia de un directorio a otro (ruta relativa vs. ruta absoluta)
+    cd .. : cambia al fichero de la ruta anterior
+    pwd : Muestra la ruta del directorio actual.
+    cp : Copiar ficheros o directorios.
+    mv : mover o renombrar un directorio.
+    mkdir : Crea un directorio.
+    rm : Elimina un fichero.
+    rmdir: Elimina un directorio
+    touch : crea un nuevo archivo.
+    chown <user:group> <fichero o directorio>: cambiar el usuario y el grupo propietario para un fichero o 
+                                                directorio.
+    ls : Lista los nombres de los ficheros.
+    <comando> | less : Visualiza el fichero paginado (más cómodo).
+    echo: Envía un string a la salida estándar (el terminal).
+        echo "mensaje" > archivo : elimina todo el texto del archivo y lo cambia por el mensaje
+        echo "mensaje" >> archivo : añade el mensaje al texto que tiene el archivo
+    clear : Limpia la consola.
+    man : Muestra información del comando que le indiquemos a continuación.
+    whoami : ver el usuario activo.
+    sudo su : cambiar a usuario root
+    sudo <comando> : Ejecutar un comando con privilegios de administrador. exit : salir del usuario actual o del 
+                    terminal
+    sudo apt update: comprobar actualizaciones
+    sudo apt upgrade: confirma las actualizaciones
+    passwd : Cambio de contraseña.
+    date: Muestra la hora y la fecha.
+    cal: Muestra un calendario.
+    exit : salir de la sesión actual o del terminal
+    nano : abre un editor de documentos y se puede modificar el contenido
+    ctrl+shift+t : abre una pestaña nueva de la consola
+    history : abre el historial de comandos usados en la consola
+    history -c : borra el historial de comandos de la consola
+    [comando] man : abre el manual del comando que necesitemos de manera detallada
+    [comando] --help : abre ayuda para recordarnos las opciones del comando
+    host "url(sin www.)" : muestra la IP de la url
+
+**Establecer un alias:
+
+    1) (en consola) code /home/aitor/.bashrc : abre visualstudio con el archivo bash y 
+            sirve para crear un alias
+    2)(en VS) alias goCode="cd <ruta>"
+            # goCode es el nombre del alias
+    3) (en consola) source ~/.bashrc : acepta el código y lo mantiene en la memoria 
+            aunque se apague el ordenador
+
+**Comandos generales Git
+
+    $ git : es el comando general para usar Git. Escribiremos git y posteriormente la acción que
+            queremos que Git ejecute.
+    $ git --version : muestra la versión de git instalada.
+    $ git init : crea un nuevo repositorio o reinicializa uno existente.
+    $ git config --global user.name "John Doe" : configura tu nombre de usuario.
+    $ git config --global user.email “johndoe@example.com” : configura el email.
+    $ git status : muestra los cambios en el árbol de trabajo.
+    $ git add <file or folder> : especificará qué quieres controlar bajo el VCS. 
+                    Todo lo que se añada, estará sujeto al futuro registro de cambios
+    $ git add . : añade todos los archivos al stage area
+    $ git commit : guarda los cambios realizados en el histórico de cambios. Llevará una descripción del
+                    trabajo guardado. Por comodidad, esta descripción se agrega al comando con el parámetro -m y la
+                    descripción entre comillas: “nuevo menú de navegación”
+    $ git log : muestra el registro de los commits realizados.
+    $ git log --oneline : da la información de los commits en formato reducido
+    $ git diff : Muestra línea por línea las diferencias que hay en los archivos respecto a los ya registrados.
+    $ git clone <URL> : descarga desde la URL indicada, una copia de un repositorio remoto en nuestra máquina.
+    $ git pull : Descarga los cambios del repositorio remoto. Todos los cambios estarán disponibles en tu copia local.
+    $ git remote -v : imprimirá la lista de nombres de repositorios guardados como marcadores, además de
+                    la URL del repositorio correspondiente.
+    $ git remote add origin <URL_OF_REMOTE> : creará un nuevo registro de conexión con un repositorio remoto.
+    $ git push : Envía o sube los cambios al repositorio remoto de los últimos commits .
+    $ git push -u origin master : especifica a dónde vamos a subirlo,es decir, configura la subida al
+                    remoto llamado origin y rama (branch)
+    $ git reset --hard HEAD^ : restaura el repositorio al penúltimo commit
+    $ git restore --staged <archivo> : elimina los cambios añadidos al staging area
+    $ git commit --amend : nos permite modificar el mensaje del último commit sin añadir uno nuevo.
+
+**Comandos branches Git
+
+    $ git branch <branch_name> : crea una nueva rama llamada branch_name
+    $ git checkout <branch_name> : cambiar a la rama branch_name
+    $ git branch : muestra todas las ramas existentes.
+    $ git checkout -b <branch_name> : crea una nueva rama llamada branch_name y se cambia a esa rama.
+    $ git branch -d <branch_name> : elimina la rama llamada branch_name
+    $ git merge <branch_name> : fusiona la rama branch_name en la rama actual.
+
+**Comunicación con GitHub
+    
+    $ git remote add upstream <URL> : añade una conexión nueva a un repo diferente
+    $ git fetch upstream : carga la información de la fuente upstream
+    $ git merge upstream/main : une la información cargada de upstream con mi main
+
+**Guía comandos Markdown
+    
+    https://www.markdownguide.org/cheat-sheet/
