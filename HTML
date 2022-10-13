@@ -1,34 +1,208 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head> <!--Cabecera general. Info relevante para el navegador-->
-        <meta charset="UTF-8">  <!--Tipo de caracteres que se va a usar-->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!--Metadatos de compatibilidad-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Indica al navegador que el ancho de mi pág. va
+
+<head>
+    <!--Cabecera general. Info relevante para el navegador-->
+    <meta charset="UTF-8">
+    <!--Tipo de caracteres que se va a usar-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Metadatos de compatibilidad-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Indica al navegador que el ancho de mi pág. va
                                                                                 a ser el ancho del dispositivo donde se vea y la
                                                                                 escala inicial-->
-        <title>Título de pestaña</title> <!--Título del documento que se muestra en la pestaña-->
-    
-    </head>
-    <body> <!-- Donde se escribe todo el código -->
-        
-        <h3>**Enlaces externo e interno (tipo inline)</h3>
-        <a href="https://www.google.com" target="_blank">Enlace a google</a> <!--En el atributo ponemos la url externa y entre las etiquetas
-                                                establecemos el texto que queremos que se vea-->
-                                                <!-- Para abrir enlace en pestaña nueva usar Target="_blank" -->
-        <a href="Comandos_consola_linux.txt">Enlace comandos linux</a> <!--En el atributo ponemos el nombre interno
-                                                y entre las etiquetas establecemos el texto que queremos que se vea-->
-        <br> <!-- Salto de línea -->
-        <hr> <!-- línea separadora -->
+    <title>Título de pestaña</title>
+    <!--Título del documento que se muestra en la pestaña-->
 
-        <h3>**Títulos (tipo bloque)</h3> 
-        <h1>Título 1</h1> <!-- Título de mayor relevancia -->
-        <h2>Título 2</h2>       
-        <h3>Título 3</h3>       
-        <h4>Título 4</h4>       
-        <h5>Título 5</h5>
-        <h6>Título 6</h6> <!-- Título de menor relevancia -->
-        <p>El primer párrafo</p>
-        <p>El segundo párrafo</p>
-    </body>
+</head>
+
+<body>
+
+    <!-- Con F1 visualizo todos los comandos de VisualStudio:
+    - Wrap : englobo todo el texto señalado con una etiqueta 
+    - abreviatura * num : escribe el número de veces un comando
+    - abreviatura.nombre_de_clase : establece el atributo class con el nombre deseado
+    - abreviatura1>abreviatura2 : mete la etiqueta2 en la etiqueta1-->
+    
+    <!-- Donde se escribe todo el código -->
+
+    <h3>*ENLACES EXTERNO E INTERNO* (tipo inline)</h3>
+    <a href="https://www.google.com" target="_blank">Enlace a google</a>
+    <!--En el atributo ponemos la url externa y entre las etiquetas
+                                                establecemos el texto que queremos que se vea-->
+    <!-- Para abrir enlace en pestaña nueva usar Target="_blank" -->
+    <a href="Comandos_consola_linux.txt">Enlace comandos linux</a>
+    <!--En el atributo ponemos el nombre interno
+                                                y entre las etiquetas establecemos el texto que queremos que se vea-->
+    <br> <!-- Salto de línea -->
+    <hr> <!-- línea separadora -->
+
+    <h3>*TÍTULOS* (tipo bloque)</h3>
+    <h1>Título 1</h1> <!-- Título de mayor relevancia -->
+    <h2>Título 2</h2>
+    <h3>Título 3</h3>
+    <h4>Título 4</h4>
+    <h5>Título 5</h5>
+    <h6>Título 6</h6> <!-- Título de menor relevancia -->
+
+    <hr>
+
+    <h3>*TEXTOS (tipo inline) Y PÁRRAFOS* (tipo bloque)</h3>
+    <p><!-- Etiqueta de párrafo -->
+        Lorem ipsum, 
+        <b>dolor sit amet</b> <!--lo pone en negrita SIN darle importancia frente a los motores de búsqueda--> 
+        consectetur adipisicing elit. Quae sint ipsum hic rem voluptatem ipsam optio officiis
+        ad 
+        <em>doloremque aliquam</em> <!-- pone en cursiva -->
+        , voluptatum <s>adipisci vero</s> <!-- tacha el texto -->
+        laboriosam nulla fugit qui! Impedit, quos necessitatibus
+         s<sub>im</sub>ili<sub>que</sub> <!-- pone un subíndice en el carácter previo --> eaque sit laborum 
+        <strong>repellat commodi assumenda</strong> <!--lo pone en negrita DÁNDOLE importancia frente a los motores de búsqueda-->
+        <span id="hacer_referencia">distinctio aliquid atque quisquam sapiente</span> <!-- identifica el texto para darle formato. No es útil por sí misma -->
+         i<sup>nci</sup>dunt?<!-- pone un superíndice en caracter previo --> Aperiam harum deleniti numquam ex eaque officiis.
+    </p> 
+   
+    <pre> <!-- Párrafo que respeta los imputs que le meto por teclado como espacios y tabulación -->
+        Lorem ipsum dolor sit amet consectetur 
+                <var>a</var> x <var>b</var><!-- establece formato variable -->
+           adipisicing elit. Natus libero atque corporis facilis alias, 
+        necessitatibus           labore molestias 
+                voluptatem consectetur temporibus?
+    </pre>
+
+    <p>Luego a las <time datetime="14:30"><!-- le ponemos etiqueta de tiempo con el atributo "datetime" para poder hacer operaciones posteriores --> 14:30</time> 
+        hago las papas con mojo, que llevan desde el <time datetime="05-08"> <!-- "time" sirve para fechas y horas  -->05/08</time> ahí</p>
+
+    <hr>
+
+    <h3>*CONTENEDORES/CONTAINERS* (tipo bloque)</h3>
+
+    <nav><!-- en esta etiqueta va el menú de navegación de nuestra página -->
+        <!-- a*3{Enlace $} -->
+        <a href="">Enlace 1</a>
+        <a href="">Enlace 2</a>
+        <a href="">Enlace 3</a>
+    </nav>
+
+    <section><!--se usa cuando lo que está dentro tiene relación entre sí. Ej: un artículo -->
+        <article> <!-- mayormente usado para blogs -->
+            <h1>Título artículo</h1>
+            <p>párrafo artículo</p>
+        </article>
+    </section>
+
+    <aside> <!-- dedicado a menús o barras laterales -->
+        <p>menú lateral en misma línea que otros elementos</p>
+    </aside>
+
+    <footer> <!-- usado como pie de página -->
+        <p>pie de página</p>
+        <address>Graná</address> <!-- usado para direcciones -->
+    </footer>
+
+    <div><!--  contenedor genérico y más usado -->
+        <p>contenedor por excelencia</p>
+    </div>
+
+    <hr>
+
+    <h3>*LISTAS/LISTS* (tipo bloque)</h3>
+   
+    <ul> <!-- lista desordenada -->
+        <li> <!-- elementos de lista ordenada -->
+            Elemento 1
+        </li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+    </ul>
+    <ol start="10"> <!-- lista ordenada -->
+                    <!-- el elemento start indica el número en el que empieza -->
+        <li> <!-- elementos de lista ordenada -->
+            Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+    </ol>
+    <ul>
+        <li>item1</li>
+        <li>item2
+            <ol>
+                <li>item2.1</li>
+                <li>item2.2</li>
+            </ol>
+        </li>
+        <li>item3
+            <ul>
+                <li>item3.a</li>
+                <li>item3.b</li>
+            </ul>   
+        </li>
+    </ul>
+    
+    <hr>
+
+    <h3>*TABLAS/TABLES* (tipo bloque)</h3>
+
+    <table> <!-- me crea una tabla -->
+        <thead> <!-- cabecera de una tabla (se añade una "t" a "head") -->            
+            <tr> <!-- representa una fila de la tabla -->
+                <th> <!-- representa una celda de la cabecera o identificador(también lo puedo poner en el body para datos concretos)-->
+                    nombre
+                </th>
+                <th>Email</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody> <!-- cuerpo de una tabla (se añade una "t" a "body") -->
+            <tr>
+                <td> <!-- representa una celda de datos de la tabla -->
+                periquito
+                </td>
+                <td>delospalotes@email.com</td>
+                <td></td> <!-- si quiero dejar alguna celda vacía, necesito, al menos, crearla -->
+            </tr>
+            <tr>
+                <td>Fulanito</td>
+                <td>fumega@email.com</td>
+                <td>47</td>
+            </tr>
+        </tbody>
+        <tfoot><!-- pie de una tabla (se añade una "t" a "foot") -->            
+            <tr> 
+                <th> <!-- representa una celda de cabecera, pie o identificador(también lo puedo poner en el body para datos concretos)-->
+                    nombre
+                </th>
+                <th>Email</th>
+                <th>Edad</th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <hr>
+
+    <h3>*FORMULARIOS/FORMS*</h3>
+
+    <form action="" method="get"> <!--todo lo que pertenezca al formulario tiene que estar dentro de la etiqueta -->
+                <!--el atributo "method" nos indica si queremos recibir (get) o mandar(post) la info-->
+                <!--el atributo "action" nos indica la ruta donde queremos hacer la petición del formulario -->
+        <label for="nombre_form">Nombre:</label> <!--etiqueta de un input. Hace referencia a ese input poniendo el "id" en el "for" -->
+        <input type="text" id="nombre_form" name="user_name" placeholder="introduce el nombre"> <!--input tipo texto. Abre un cuadro para introducir texto por el usuario -->
+                                        <!-- con placeholder ponemos la frase dentro del cuadro de texto -->
+                                        <!-- el atributo "name" sirve para darle nombre de cara al servidor -->
+        <br>
+        <label for="email_form">Email:</label>                                    
+        <input type="email" id="email_form" name="user_email" placeholder="introduce el email">
+        
+        <br>
+
+        <label for="pssw_form">Contraseña:</label>                                    
+        <input type="password" id="pssw_form" name="user_psswd" placeholder="introduce la pswd">
+    
+        <br>
+
+        <label for="txt_form">Texto:</label>                                    
+        <textarea id="txt_form" name="user_txt" cols="50" rows="5" placeholder="introduce la sugerencia"></textarea> <!-- "textarea" si tiene etiqueta de cierre y no es un input type -->
+    
+    </form>
+</body>
 
 </html>
