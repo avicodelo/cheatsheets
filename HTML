@@ -22,7 +22,8 @@
     - Wrap : englobo todo el texto señalado con una etiqueta 
     - abreviatura * num : escribe el número de veces un comando
     - abreviatura.nombre_de_clase : establece el atributo class con el nombre deseado
-    - abreviatura1>abreviatura2 : mete la etiqueta2 en la etiqueta1-->
+    - abreviatura1>abreviatura2 : mete la etiqueta2 en la etiqueta1
+    - ctrl+k, m : buscamos el formato del archivo y configuramos el autocompletado-->
     
     <!-- Donde se escribe todo el código -->
 
@@ -190,8 +191,8 @@
                                         <!-- el atributo "name" sirve para darle nombre de cara al servidor -->
         <br>
         <label for="email_form">Email:</label>                                    
-        <input type="email" id="email_form" name="user_email" placeholder="introduce el email">
-        
+        <input required type="email" id="email_form" name="user_email" placeholder="introduce el email">
+                <!-- con "required" obligamos a que se rellene el campo -->
         <br>
 
         <label for="pssw_form">Contraseña:</label>                                    
@@ -201,8 +202,77 @@
 
         <label for="txt_form">Texto:</label>                                    
         <textarea id="txt_form" name="user_txt" cols="50" rows="5" placeholder="introduce la sugerencia"></textarea> <!-- "textarea" si tiene etiqueta de cierre y no es un input type -->
+
+        <br>
+
+        <label for="gender_form">Género: </label>
+        <select name="gender" id="gender_form"> <!-- establece un desplegable con las opciones que se le añaden en el interior -->
+            <option value="" hidden></option> <!-- esta primera opción vacía sirve para que el desplegable no tenga ningún valor hasta que el usuario lo cambie -->
+                                            <!-- se añade hidden para que se esconda y no le permita al usuario seleccionarlo -->
+            <option value="male">masculino</option>
+            <option value="female">femenino</option> <!-- "value" va a ser el valor que se le envíe al servidor -->
+        </select>
+
+        <br>
+
+        <label for="age_form">Edad: </label>
+        <input type="number" name="age" id="age_form" min="18" max="100" value="28">
+        <!--le damos un rango entre el min y max y con value establecemos un valor inicial que se puede cambiar -->
     
+        <br>
+
+        <label for="date_form">Fecha de nacimiento: </label>
+        <input type="date" id="date_form">
+
+        <br>
+
+        <input type="submit" id="submit_form">
+
+        <br>
+
+        <!--predictor de texto para ayuda del usuario -->
+        <label for="ciudad_form">Dónde vives? </label>
+        <input type="text" id="ciudad_form" name="city" list="cities">
+        <datalist id="cities"> <!-- tenemos que añadir los elementos de la lista y darle un id -->
+            <option value="Granada">Granada</option> <!-- los elementos de la lista son iguales que en el "select" -->
+            <option value="Sevilla">Sevilla</option> 
+            <option value="Málaga">Málaga</option> 
+            <option value="Almería">Almería</option> 
+        </datalist>
+
+        <br><br>
+
+        <!--agrupar datos en un campo y encuadrarlos-->
+
+        <fieldset disabled> <!--si añadimos "disabled" no deja completarlo -->
+           <legend><b>Log In</b></legend> <!--es el título de "fieldset"-->
+            <div>
+                <label for="email_form2">Email:</label>
+                <input required type="email" id="email_form2" name="user_email" placeholder="introduce el email">
+                        <!-- con "required" obligamos a que se rellene el campo -->
+                <br>
+                <label for="pssw_form2">Contraseña:</label>
+                <input type="password" id="pssw_form2" name="user_psswd" placeholder="introduce la pswd">
+            </div>
+        </fieldset>
+        
+        <br>
+        
+        <fieldset>
+            <legend><b>Estado Civil</b></legend>
+            <input type="radio" id="married" name="estadoCivil"> <!--todos los campos tienen que tener el mismo "name" para que solo se pueda seleccioar uno-->
+            <label for="married">Casado </label><br> <!-- se pone "label" después de "input" para que el radio esté a la izqda del texto -->
+            
+            <input type="radio" id="divorciado" name="estadoCivil">
+            <label for="divorciado">Divorciado </label><br>
+            
+            <input type="radio" id="soltero" name="estadoCivil">
+            <label for="Soltero">Soltero</label><br>
+        </fieldset>
     </form>
+    
+    
 </body>
+
 
 </html>
