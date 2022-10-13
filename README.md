@@ -1,4 +1,4 @@
-# Repository of personal notes 👋
+# Repository of personal notes 
 
 ## Objective
 
