@@ -2,7 +2,7 @@
 
 ## Objective
 
-My objective is to gather every comand that I learn in one sheet. I will maintain this repository as public one in order to allow everybody to check it.
+My objective is to gather every command that I learn in one sheet. I will maintain this repository as public one in order to allow everybody to check it.
 
 ### Sheets hoped 
 - HTML: will include HTML tags.
