@@ -226,10 +226,6 @@
 
         <br>
 
-        <input type="submit" id="submit_form">
-
-        <br>
-
         <!--predictor de texto para ayuda del usuario -->
         <label for="ciudad_form">Dónde vives? </label>
         <input type="text" id="ciudad_form" name="city" list="cities">
@@ -257,7 +253,7 @@
         </fieldset>
         
         <br>
-        
+        <!-- Botones de radio -->
         <fieldset>
             <legend><b>Estado Civil</b></legend>
             <input type="radio" id="married" name="estadoCivil"> <!--todos los campos tienen que tener el mismo "name" para que solo se pueda seleccioar uno-->
@@ -269,9 +265,47 @@
             <input type="radio" id="soltero" name="estadoCivil">
             <label for="Soltero">Soltero</label><br>
         </fieldset>
+        <!-- Botones de checkbox -->
+        <fieldset>
+            <legend><b>Deportes</b></legend>
+            <input type="checkbox" id="natacion" name="natacion">
+            <label for="natacion">natación </label><br> <!-- se pone "label" después de "input" para que el checkbox esté a la izqda del texto -->
+            
+            <input type="checkbox" id="futbol" name="futbol">
+            <label for="futbol">fútbol </label><br>
+            
+            <input type="checkbox" id="voley" name="voley">
+            <label for="voley">voley</label><br>
+        </fieldset>
+
+        <label for="selectionRange">selecciona el volúmen</label>
+        <input type="range" name="volumen" id="selctionRange">
+
+        <br>
+
+        <meter id="knowledge" min="0" max="100" value="60"></meter> <!-- barra medidora de datos de un evento (votación, memoria disponible...)-->
+        <br>
+        <progress id="jsKnowledge" value="60" min="0" max="100"></progress> <!-- barra de progreso de un proceso-->
+        <br><br>
+        <div>
+            <label for="file_form">Cargue el archivo que desee</label>
+            <input type="file" id="file_form">
+        </div><br>
+
+        <input type="submit" id="submit_form"> <!-- botón de enviar -->
+        <input type="reset" id="reseteador" > <!-- boton de resetear formulario -->
     </form>
+
+    <hr>
+
+    <h3>*MULTIMEDIA/MEDIA*</h3>
     
-    
+    <br>
+    <button>Pulsa aquí</button> <!-- formato botón -->
+    <br>
+
+    <img src="images/background.jpeg" width="250" height="150" alt="Río entre montañas"> <!-- metemos una imagen con la ruta en src. Podemos establecer sus dimensiones-->
+                                                    <!-- En "alt" ponemos una descripción escueta de la foto por si la url cae -->
 </body>
 
 
