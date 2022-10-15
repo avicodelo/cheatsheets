@@ -24,7 +24,7 @@
     - abreviatura.nombre_de_clase : establece el atributo class con el nombre deseado
     - abreviatura1>abreviatura2 : mete la etiqueta2 en la etiqueta1
     - ctrl+k, m : buscamos el formato del archivo y configuramos el autocompletado-->
-    
+
     <!-- Donde se escribe todo el código -->
 
     <h3>*ENLACES EXTERNO E INTERNO* (tipo inline)</h3>
@@ -49,20 +49,25 @@
     <hr>
 
     <h3>*TEXTOS (tipo inline) Y PÁRRAFOS* (tipo bloque)</h3>
-    <p><!-- Etiqueta de párrafo -->
-        Lorem ipsum, 
-        <b>dolor sit amet</b> <!--lo pone en negrita SIN darle importancia frente a los motores de búsqueda--> 
+    <p>
+        <!-- Etiqueta de párrafo -->
+        Lorem ipsum,
+        <b>dolor sit amet</b>
+        <!--lo pone en negrita SIN darle importancia frente a los motores de búsqueda-->
         consectetur adipisicing elit. Quae sint ipsum hic rem voluptatem ipsam optio officiis
-        ad 
+        ad
         <em>doloremque aliquam</em> <!-- pone en cursiva -->
         , voluptatum <s>adipisci vero</s> <!-- tacha el texto -->
         laboriosam nulla fugit qui! Impedit, quos necessitatibus
-         s<sub>im</sub>ili<sub>que</sub> <!-- pone un subíndice en el carácter previo --> eaque sit laborum 
-        <strong>repellat commodi assumenda</strong> <!--lo pone en negrita DÁNDOLE importancia frente a los motores de búsqueda-->
-        <span id="hacer_referencia">distinctio aliquid atque quisquam sapiente</span> <!-- identifica el texto para darle formato. No es útil por sí misma -->
-         i<sup>nci</sup>dunt?<!-- pone un superíndice en caracter previo --> Aperiam harum deleniti numquam ex eaque officiis.
-    </p> 
-   
+        s<sub>im</sub>ili<sub>que</sub> <!-- pone un subíndice en el carácter previo --> eaque sit laborum
+        <strong>repellat commodi assumenda</strong>
+        <!--lo pone en negrita DÁNDOLE importancia frente a los motores de búsqueda-->
+        <span id="hacer_referencia">distinctio aliquid atque quisquam sapiente</span>
+        <!-- identifica el texto para darle formato. No es útil por sí misma -->
+        i<sup>nci</sup>dunt?
+        <!-- pone un superíndice en caracter previo --> Aperiam harum deleniti numquam ex eaque officiis.
+    </p>
+
     <pre> <!-- Párrafo que respeta los imputs que le meto por teclado como espacios y tabulación -->
         Lorem ipsum dolor sit amet consectetur 
                 <var>a</var> x <var>b</var><!-- establece formato variable -->
@@ -71,55 +76,71 @@
                 voluptatem consectetur temporibus?
     </pre>
 
-    <p>Luego a las <time datetime="14:30"><!-- le ponemos etiqueta de tiempo con el atributo "datetime" para poder hacer operaciones posteriores --> 14:30</time> 
-        hago las papas con mojo, que llevan desde el <time datetime="05-08"> <!-- "time" sirve para fechas y horas  -->05/08</time> ahí</p>
+    <p>Luego a las <time datetime="14:30">
+            <!-- le ponemos etiqueta de tiempo con el atributo "datetime" para poder hacer operaciones posteriores -->
+            14:30
+        </time>
+        hago las papas con mojo, que llevan desde el <time datetime="05-08">
+            <!-- "time" sirve para fechas y horas  -->05/08
+        </time> ahí</p>
 
     <hr>
 
     <h3>*CONTENEDORES/CONTAINERS* (tipo bloque)</h3>
 
-    <nav><!-- en esta etiqueta va el menú de navegación de nuestra página -->
+    <nav>
+        <!-- en esta etiqueta va el menú de navegación de nuestra página -->
         <!-- a*3{Enlace $} -->
         <a href="">Enlace 1</a>
         <a href="">Enlace 2</a>
         <a href="">Enlace 3</a>
     </nav>
 
-    <section><!--se usa cuando lo que está dentro tiene relación entre sí. Ej: un artículo -->
-        <article> <!-- mayormente usado para blogs -->
+    <section>
+        <!--se usa cuando lo que está dentro tiene relación entre sí. Ej: un artículo -->
+        <article>
+            <!-- mayormente usado para blogs -->
             <h1>Título artículo</h1>
             <p>párrafo artículo</p>
         </article>
     </section>
 
-    <aside> <!-- dedicado a menús o barras laterales -->
+    <aside>
+        <!-- dedicado a menús o barras laterales -->
         <p>menú lateral en misma línea que otros elementos</p>
     </aside>
 
-    <footer> <!-- usado como pie de página -->
+    <footer>
+        <!-- usado como pie de página -->
         <p>pie de página</p>
         <address>Graná</address> <!-- usado para direcciones -->
     </footer>
 
-    <div><!--  contenedor genérico y más usado -->
+    <div>
+        <!--  contenedor genérico y más usado -->
         <p>contenedor por excelencia</p>
     </div>
 
     <hr>
 
     <h3>*LISTAS/LISTS* (tipo bloque)</h3>
-   
-    <ul> <!-- lista desordenada -->
-        <li> <!-- elementos de lista ordenada -->
+
+    <ul>
+        <!-- lista desordenada -->
+        <li>
+            <!-- elementos de lista ordenada -->
             Elemento 1
         </li>
         <li>Elemento 2</li>
         <li>Elemento 3</li>
     </ul>
-    <ol start="10"> <!-- lista ordenada -->
-                    <!-- el elemento start indica el número en el que empieza -->
-        <li> <!-- elementos de lista ordenada -->
-            Elemento 1</li>
+    <ol start="10">
+        <!-- lista ordenada -->
+        <!-- el elemento start indica el número en el que empieza -->
+        <li>
+            <!-- elementos de lista ordenada -->
+            Elemento 1
+        </li>
         <li>Elemento 2</li>
         <li>Elemento 3</li>
     </ol>
@@ -135,28 +156,35 @@
             <ul>
                 <li>item3.a</li>
                 <li>item3.b</li>
-            </ul>   
+            </ul>
         </li>
     </ul>
-    
+
     <hr>
 
     <h3>*TABLAS/TABLES* (tipo bloque)</h3>
 
-    <table> <!-- me crea una tabla -->
-        <thead> <!-- cabecera de una tabla (se añade una "t" a "head") -->            
-            <tr> <!-- representa una fila de la tabla -->
-                <th> <!-- representa una celda de la cabecera o identificador(también lo puedo poner en el body para datos concretos)-->
+    <table>
+        <!-- me crea una tabla -->
+        <caption>Título de la tabla</caption>
+        <thead>
+            <!-- cabecera de una tabla (se añade una "t" a "head") -->
+            <tr>
+                <!-- representa una fila de la tabla -->
+                <th>
+                    <!-- representa una celda de la cabecera o identificador(también lo puedo poner en el body para datos concretos)-->
                     nombre
                 </th>
                 <th>Email</th>
                 <th>Edad</th>
             </tr>
         </thead>
-        <tbody> <!-- cuerpo de una tabla (se añade una "t" a "body") -->
+        <tbody>
+            <!-- cuerpo de una tabla (se añade una "t" a "body") -->
             <tr>
-                <td> <!-- representa una celda de datos de la tabla -->
-                periquito
+                <td>
+                    <!-- representa una celda de datos de la tabla -->
+                    periquito
                 </td>
                 <td>delospalotes@email.com</td>
                 <td></td> <!-- si quiero dejar alguna celda vacía, necesito, al menos, crearla -->
@@ -167,9 +195,11 @@
                 <td>47</td>
             </tr>
         </tbody>
-        <tfoot><!-- pie de una tabla (se añade una "t" a "foot") -->            
-            <tr> 
-                <th> <!-- representa una celda de cabecera, pie o identificador(también lo puedo poner en el body para datos concretos)-->
+        <tfoot>
+            <!-- pie de una tabla (se añade una "t" a "foot") -->
+            <tr>
+                <th>
+                    <!-- representa una celda de cabecera, pie o identificador(también lo puedo poner en el body para datos concretos)-->
                     nombre
                 </th>
                 <th>Email</th>
@@ -182,33 +212,39 @@
 
     <h3>*FORMULARIOS/FORMS*</h3>
 
-    <form action="" method="get"> <!--todo lo que pertenezca al formulario tiene que estar dentro de la etiqueta -->
-                <!--el atributo "method" nos indica si queremos recibir (get) o mandar(post) la info-->
-                <!--el atributo "action" nos indica la ruta donde queremos hacer la petición del formulario -->
-        <label for="nombre_form">Nombre:</label> <!--etiqueta de un input. Hace referencia a ese input poniendo el "id" en el "for" -->
-        <input type="text" id="nombre_form" name="user_name" placeholder="introduce el nombre"> <!--input tipo texto. Abre un cuadro para introducir texto por el usuario -->
-                                        <!-- con placeholder ponemos la frase dentro del cuadro de texto -->
-                                        <!-- el atributo "name" sirve para darle nombre de cara al servidor -->
+    <form action="" method="get">
+        <!--todo lo que pertenezca al formulario tiene que estar dentro de la etiqueta -->
+        <!--el atributo "method" nos indica si queremos recibir (get) o mandar(post) la info-->
+        <!--el atributo "action" nos indica la ruta donde queremos hacer la petición del formulario -->
+        <label for="nombre_form">Nombre:</label>
+        <!--etiqueta de un input. Hace referencia a ese input poniendo el "id" en el "for" -->
+        <input type="text" id="nombre_form" name="user_name" placeholder="introduce el nombre">
+        <!--input tipo texto. Abre un cuadro para introducir texto por el usuario -->
+        <!-- con placeholder ponemos la frase dentro del cuadro de texto -->
+        <!-- el atributo "name" sirve para darle nombre de cara al servidor -->
         <br>
-        <label for="email_form">Email:</label>                                    
+        <label for="email_form">Email:</label>
         <input required type="email" id="email_form" name="user_email" placeholder="introduce el email">
-                <!-- con "required" obligamos a que se rellene el campo -->
+        <!-- con "required" obligamos a que se rellene el campo -->
         <br>
 
-        <label for="pssw_form">Contraseña:</label>                                    
+        <label for="pssw_form">Contraseña:</label>
         <input type="password" id="pssw_form" name="user_psswd" placeholder="introduce la pswd">
-    
+
         <br>
 
-        <label for="txt_form">Texto:</label>                                    
-        <textarea id="txt_form" name="user_txt" cols="50" rows="5" placeholder="introduce la sugerencia"></textarea> <!-- "textarea" si tiene etiqueta de cierre y no es un input type -->
+        <label for="txt_form">Texto:</label>
+        <textarea id="txt_form" name="user_txt" cols="50" rows="5" placeholder="introduce la sugerencia"></textarea>
+        <!-- "textarea" si tiene etiqueta de cierre y no es un input type -->
 
         <br>
 
         <label for="gender_form">Género: </label>
-        <select name="gender" id="gender_form"> <!-- establece un desplegable con las opciones que se le añaden en el interior -->
-            <option value="" hidden></option> <!-- esta primera opción vacía sirve para que el desplegable no tenga ningún valor hasta que el usuario lo cambie -->
-                                            <!-- se añade hidden para que se esconda y no le permita al usuario seleccionarlo -->
+        <select name="gender" id="gender_form">
+            <!-- establece un desplegable con las opciones que se le añaden en el interior -->
+            <option value="" hidden></option>
+            <!-- esta primera opción vacía sirve para que el desplegable no tenga ningún valor hasta que el usuario lo cambie -->
+            <!-- se añade hidden para que se esconda y no le permita al usuario seleccionarlo -->
             <option value="male">masculino</option>
             <option value="female">femenino</option> <!-- "value" va a ser el valor que se le envíe al servidor -->
         </select>
@@ -218,7 +254,7 @@
         <label for="age_form">Edad: </label>
         <input type="number" name="age" id="age_form" min="18" max="100" value="28">
         <!--le damos un rango entre el min y max y con value establecemos un valor inicial que se puede cambiar -->
-    
+
         <br>
 
         <label for="date_form">Fecha de nacimiento: </label>
@@ -229,39 +265,44 @@
         <!--predictor de texto para ayuda del usuario -->
         <label for="ciudad_form">Dónde vives? </label>
         <input type="text" id="ciudad_form" name="city" list="cities">
-        <datalist id="cities"> <!-- tenemos que añadir los elementos de la lista y darle un id -->
+        <datalist id="cities">
+            <!-- tenemos que añadir los elementos de la lista y darle un id -->
             <option value="Granada">Granada</option> <!-- los elementos de la lista son iguales que en el "select" -->
-            <option value="Sevilla">Sevilla</option> 
-            <option value="Málaga">Málaga</option> 
-            <option value="Almería">Almería</option> 
+            <option value="Sevilla">Sevilla</option>
+            <option value="Málaga">Málaga</option>
+            <option value="Almería">Almería</option>
         </datalist>
 
         <br><br>
 
         <!--agrupar datos en un campo y encuadrarlos-->
 
-        <fieldset disabled> <!--si añadimos "disabled" no deja completarlo -->
-           <legend><b>Log In</b></legend> <!--es el título de "fieldset"-->
+        <fieldset disabled>
+            <!--si añadimos "disabled" no deja completarlo -->
+            <legend><b>Log In</b></legend>
+            <!--es el título de "fieldset"-->
             <div>
                 <label for="email_form2">Email:</label>
                 <input required type="email" id="email_form2" name="user_email" placeholder="introduce el email">
-                        <!-- con "required" obligamos a que se rellene el campo -->
+                <!-- con "required" obligamos a que se rellene el campo -->
                 <br>
                 <label for="pssw_form2">Contraseña:</label>
                 <input type="password" id="pssw_form2" name="user_psswd" placeholder="introduce la pswd">
             </div>
         </fieldset>
-        
+
         <br>
         <!-- Botones de radio -->
         <fieldset>
             <legend><b>Estado Civil</b></legend>
-            <input type="radio" id="married" name="estadoCivil"> <!--todos los campos tienen que tener el mismo "name" para que solo se pueda seleccioar uno-->
-            <label for="married">Casado </label><br> <!-- se pone "label" después de "input" para que el radio esté a la izqda del texto -->
-            
+            <input type="radio" id="married" name="estadoCivil">
+            <!--todos los campos tienen que tener el mismo "name" para que solo se pueda seleccioar uno-->
+            <label for="married">Casado </label><br>
+            <!-- se pone "label" después de "input" para que el radio esté a la izqda del texto -->
+
             <input type="radio" id="divorciado" name="estadoCivil">
             <label for="divorciado">Divorciado </label><br>
-            
+
             <input type="radio" id="soltero" name="estadoCivil">
             <label for="Soltero">Soltero</label><br>
         </fieldset>
@@ -269,11 +310,12 @@
         <fieldset>
             <legend><b>Deportes</b></legend>
             <input type="checkbox" id="natacion" name="natacion">
-            <label for="natacion">natación </label><br> <!-- se pone "label" después de "input" para que el checkbox esté a la izqda del texto -->
-            
+            <label for="natacion">natación </label><br>
+            <!-- se pone "label" después de "input" para que el checkbox esté a la izqda del texto -->
+
             <input type="checkbox" id="futbol" name="futbol">
             <label for="futbol">fútbol </label><br>
-            
+
             <input type="checkbox" id="voley" name="voley">
             <label for="voley">voley</label><br>
         </fieldset>
@@ -283,7 +325,8 @@
 
         <br>
 
-        <meter id="knowledge" min="0" max="100" value="60"></meter> <!-- barra medidora de datos de un evento (votación, memoria disponible...)-->
+        <meter id="knowledge" min="0" max="100" value="60"></meter>
+        <!-- barra medidora de datos de un evento (votación, memoria disponible...)-->
         <br>
         <progress id="jsKnowledge" value="60" min="0" max="100"></progress> <!-- barra de progreso de un proceso-->
         <br><br>
@@ -293,19 +336,50 @@
         </div><br>
 
         <input type="submit" id="submit_form"> <!-- botón de enviar -->
-        <input type="reset" id="reseteador" > <!-- boton de resetear formulario -->
+        <input type="reset" id="reseteador"> <!-- boton de resetear formulario -->
     </form>
 
     <hr>
 
     <h3>*MULTIMEDIA/MEDIA*</h3>
-    
+
     <br>
     <button>Pulsa aquí</button> <!-- formato botón -->
     <br>
 
-    <img src="images/background.jpeg" width="250" height="150" alt="Río entre montañas"> <!-- metemos una imagen con la ruta en src. Podemos establecer sus dimensiones-->
-                                                    <!-- En "alt" ponemos una descripción escueta de la foto por si la url cae -->
+    <img src="images/background.jpeg" width="250" height="150" alt="Río entre montañas">
+    <!-- metemos una imagen con la ruta en src. Podemos establecer sus dimensiones-->
+    <!-- En "alt" ponemos una descripción escueta de la foto por si la url cae -->
+    <iframe src="https://marca.com" width="250" height="250"></iframe>
+    <!-- se pueden insertar videos, pags web y archivos sin que llegue a estar en nuestra página -->
+
+    <!-- <object></object> para incrustar plugings y objetos no necesariamente visuales (es poco común) -->
+
+    <hr>
+
+    <h3>*CITAS / QUOTATIONS*</h3>
+
+    <blockquote>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eius error amet illum quisquam at aspernatur
+        illo
+        necessitatibus natus, enim, atque earum, quam voluptas id veniam? Ipsa nihil quia laudantium repudiandae,
+        incidunt
+        praesentium aut est officia quod reprehenderit id modi corrupti velit unde repellendus? Ex earum tempore vitae
+        alias
+        perspiciatis eaque a obcaecati veritatis qui aliquid culpa quae, numquam aliquam, vel accusamus harum vero animi
+        architecto quaerat. Consequatur labore, amet blanditiis quam quod natus iste. Pariatur quidem dolorem quos ipsum
+        harum, quam atque reiciendis velit? Perspiciatis optio, expedita, illo omnis delectus consequuntur odit harum
+        consequatur, mollitia est nihil eligendi rem!
+    </blockquote> <!-- sirve para citar textos en bloque quitándole el estilo -->
+
+    <q>Mejor pedir perdón que permiso</q><br> <!-- cita de frase con estilo propio -->
+    <abbr title="Organización de las Naciones Unidas">ONU</abbr> <!-- en la página se ve ONU pero si ponemos el ratón sobre las siglas, veremos el título dado -->
+
+    <hr>
+
+    <h3>*SCRIPTS*</h3>
+    <script>document.write ("esto es un texto js") </script> <!-- para introducir código JS -->
+    <noscript>ERROR. Tu navegador no soporta JS</noscript> <!-- si no se puede ejecutar el "script", salta este mensaje -->
 </body>
 
 
