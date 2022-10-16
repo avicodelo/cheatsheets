@@ -23,8 +23,8 @@
     - abreviatura * num : escribe el número de veces un comando
     - abreviatura.nombre_de_clase : establece el atributo class con el nombre deseado
     - abreviatura1>abreviatura2 : mete la etiqueta2 en la etiqueta1
-    - ctrl+k, m : buscamos el formato del archivo y configuramos el autocompletado-->
-
+    - ctrl+k, m : buscamos el formato del archivo y configuramos el autocompletado
+    - se pueden descargar iconos de "www.flaticon.com"-->
     <!-- Donde se escribe todo el código -->
 
     <h3>*ENLACES EXTERNO E INTERNO* (tipo inline)</h3>
@@ -223,6 +223,7 @@
         <!-- con placeholder ponemos la frase dentro del cuadro de texto -->
         <!-- el atributo "name" sirve para darle nombre de cara al servidor -->
         <br>
+        
         <label for="email_form">Email:</label>
         <input required type="email" id="email_form" name="user_email" placeholder="introduce el email">
         <!-- con "required" obligamos a que se rellene el campo -->
@@ -265,36 +266,40 @@
         <!--predictor de texto para ayuda del usuario -->
         <label for="ciudad_form">Dónde vives? </label>
         <input type="text" id="ciudad_form" name="city" list="cities">
-        <datalist id="cities">
+            <datalist id="cities">
             <!-- tenemos que añadir los elementos de la lista y darle un id -->
-            <option value="Granada">Granada</option> <!-- los elementos de la lista son iguales que en el "select" -->
-            <option value="Sevilla">Sevilla</option>
-            <option value="Málaga">Málaga</option>
-            <option value="Almería">Almería</option>
-        </datalist>
+                <option value="Granada">Granada</option> <!-- los elementos de la lista son iguales que en el "select" -->
+                <option value="Sevilla">Sevilla</option>
+                <option value="Málaga">Málaga</option>
+                <option value="Almería">Almería</option>
+            </datalist>
 
         <br><br>
 
         <!--agrupar datos en un campo y encuadrarlos-->
 
-        <fieldset disabled>
+        <fieldset >
             <!--si añadimos "disabled" no deja completarlo -->
             <legend><b>Log In</b></legend>
             <!--es el título de "fieldset"-->
             <div>
+                
                 <label for="email_form2">Email:</label>
                 <input required type="email" id="email_form2" name="user_email" placeholder="introduce el email">
                 <!-- con "required" obligamos a que se rellene el campo -->
                 <br>
+                
                 <label for="pssw_form2">Contraseña:</label>
                 <input type="password" id="pssw_form2" name="user_psswd" placeholder="introduce la pswd">
             </div>
         </fieldset>
 
         <br>
+        
         <!-- Botones de radio -->
-        <fieldset>
+        <fieldset disabled>
             <legend><b>Estado Civil</b></legend>
+            
             <input type="radio" id="married" name="estadoCivil">
             <!--todos los campos tienen que tener el mismo "name" para que solo se pueda seleccioar uno-->
             <label for="married">Casado </label><br>
@@ -303,12 +308,15 @@
             <input type="radio" id="divorciado" name="estadoCivil">
             <label for="divorciado">Divorciado </label><br>
 
-            <input type="radio" id="soltero" name="estadoCivil">
+            <input type="radio" id="soltero" name="estadoCivil" checked>
             <label for="Soltero">Soltero</label><br>
+        
         </fieldset>
+       
         <!-- Botones de checkbox -->
         <fieldset>
             <legend><b>Deportes</b></legend>
+            
             <input type="checkbox" id="natacion" name="natacion">
             <label for="natacion">natación </label><br>
             <!-- se pone "label" después de "input" para que el checkbox esté a la izqda del texto -->
@@ -318,6 +326,7 @@
 
             <input type="checkbox" id="voley" name="voley">
             <label for="voley">voley</label><br>
+       
         </fieldset>
 
         <label for="selectionRange">selecciona el volúmen</label>
@@ -327,29 +336,34 @@
 
         <meter id="knowledge" min="0" max="100" value="60"></meter>
         <!-- barra medidora de datos de un evento (votación, memoria disponible...)-->
+        
         <br>
+        
         <progress id="jsKnowledge" value="60" min="0" max="100"></progress> <!-- barra de progreso de un proceso-->
+        
         <br><br>
+        
         <div>
             <label for="file_form">Cargue el archivo que desee</label>
             <input type="file" id="file_form">
         </div><br>
 
         <input type="submit" id="submit_form"> <!-- botón de enviar -->
+       
         <input type="reset" id="reseteador"> <!-- boton de resetear formulario -->
+    
     </form>
 
     <hr>
 
-    <h3>*MULTIMEDIA/MEDIA*</h3>
-
-    <br>
-    <button>Pulsa aquí</button> <!-- formato botón -->
-    <br>
+    <h3>*MULTIMEDIA/MEDIA*</h3><br>
+    
+    <button>Pulsa aquí</button> <!-- formato botón --><br>
 
     <img src="images/background.jpeg" width="250" height="150" alt="Río entre montañas">
     <!-- metemos una imagen con la ruta en src. Podemos establecer sus dimensiones-->
     <!-- En "alt" ponemos una descripción escueta de la foto por si la url cae -->
+    
     <iframe src="https://marca.com" width="250" height="250"></iframe>
     <!-- se pueden insertar videos, pags web y archivos sin que llegue a estar en nuestra página -->
 
@@ -373,11 +387,15 @@
     </blockquote> <!-- sirve para citar textos en bloque quitándole el estilo -->
 
     <q>Mejor pedir perdón que permiso</q><br> <!-- cita de frase con estilo propio -->
+    
     <abbr title="Organización de las Naciones Unidas">ONU</abbr> <!-- en la página se ve ONU pero si ponemos el ratón sobre las siglas, veremos el título dado -->
+
+    <p>para introducir caracteres raros usamos &. Ej: &copy; &searrow;</p> <!--hay muchos símbolos y se pueden buscar en internet-->
 
     <hr>
 
     <h3>*SCRIPTS*</h3>
+    
     <script>document.write ("esto es un texto js") </script> <!-- para introducir código JS -->
     <noscript>ERROR. Tu navegador no soporta JS</noscript> <!-- si no se puede ejecutar el "script", salta este mensaje -->
 </body>
