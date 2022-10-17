@@ -1,0 +1,56 @@
+                
+                /* *SELECTORES* */
+
+/* * : el asteriscp apunta a todas las etiquetas del archivo */
+   
+    * {
+        background-color: aqua;
+    }
+
+/* .class : con el punto, apuntamos a las partes que tienen como clase el nombre dado */
+
+    .class_example {
+        color: blueviolet;
+    }
+
+/* #id : con la almohadilla apuntamos a la etiqueta que tiene como id el nombre dado */
+
+    #is_example {
+        color: black;
+    }
+
+/* nombre_de_etiqueta : hace referencia a todas las etiquetas del mismo tipo */
+
+    h1 {
+        font: 100;
+    }
+
+/* [atributo=valor] : hace referencia a los elementos que tengan atributos con el valor dado */
+
+    [type=submit] {
+        background-color: aliceblue;
+    }
+
+        /* COMBINACIÓN DE SELECTORES */
+
+/* Por jerarquía : se añade un espacio " " para determinar quién está dentro de quién. Si le quito el espacio no lo trata como jerarquía sino como info del mismo elemento */
+
+    div a {     /*apunta a todos los hipervínculos que estén dentro de div sin tener en cuenta la posición del hipervínculo */
+        text-decoration: none;
+    }
+
+    .class_example span#idspan {    /* apunta a los span que tengan como id=idspan y que estén dentro de aquellas etiquetas que tienen clase=class_example */
+        color: aliceblue;
+    }
+
+/* Por hijo de elemento : se añade un mayor qué ">" para seleccionar a los hijos directos */
+
+    p.class_paragraph>span{     /* apunta a los span que son hijos directos de los párrafos con clase=class_paragraph */
+        color: aliceblue;
+    }
+
+/* Mismas características para diferentes selectores : añadimos una coma "," entre selectores para aplicarle el mismo código */
+
+    p, a {      /* aplicará a todos los párrafos y a todos los hipervínculos las características deseadas */
+        color: aliceblue;
+    }
