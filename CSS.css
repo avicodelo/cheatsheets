@@ -1,10 +1,14 @@
                 
+                
+/* awwwards: página interesante para ver webs con diseños creativos*/ 
+                
                 /* *SELECTORES* */
 
 /* * : el asteriscp apunta a todas las etiquetas del archivo */
    
     * {
         background-color: aqua;
+        margin: 0;
     }
 
 /* .class : con el punto, apuntamos a las partes que tienen como clase el nombre dado */
@@ -31,6 +35,12 @@
         background-color: aliceblue;
     }
 
+/* [atributo ^= valor] : hace referencia a los elementos que tengan atributos que EMPIECEN con el valor dado */
+
+    [class ^= table] {
+        background-color: aliceblue;
+    }
+
         /* COMBINACIÓN DE SELECTORES */
 
 /* Por jerarquía : se añade un espacio " " para determinar quién está dentro de quién. Si le quito el espacio no lo trata como jerarquía sino como info del mismo elemento */
@@ -53,4 +63,127 @@
 
     p, a {      /* aplicará a todos los párrafos y a todos los hipervínculos las características deseadas */
         color: aliceblue;
+    }
+
+                /* *COLORES* */
+
+/* Hay paletas de colores en internet "color palette".Se pueden representar por:
+
+    1)Nombre : red
+
+    2)RGB (red, green, blue) (máx hasta 255) : rgb(240,200,0)
+
+    3)#Hexadecimal : #FFF523
+    
+Opacidad de colores (va desde el 0 hasta el 1):
+
+    1) opacity : 0.8
+
+    2) (R,G,B,A) : rgba(241,230,142,0.5) */
+
+    h1 {
+        color: red;
+        background-color:rgb(214, 150, 230);
+        border-color: #a41906;
+    }
+
+    h2{
+        color: rgba(140,255,0.5)
+    }
+
+                /* *IMÁGENES DE FONDO* */
+
+/* Se puede poner una imágen como fondo de un contenedor */
+
+    div {
+        height: 50vh; /* establece la altura del 50% de la pantalla verticalmente */
+        background-image: url(images/background.jpeg); /* mete la foto como fondo */
+        background-position: center bottom; /* establece la parte de la imagen que queremos que se vea. // valores eje x: left, center, right// valores eje y: top, cente, bottom*/
+        background-attachment: fixed; /* fija la imagen a la pantalla para que no le afecte el scroll de la pantalla */
+        
+        /* cuando la imagen es más pequeña que el contenedor donde está, esta se repite. */
+        background-repeat: no-repeat;   /* Con esta propiedad podemos controlar la repetición de la imagen*/
+        background-size: cover; /*cover: obligamos a la imagen a que cubra todo el div donde está contenida // contain: se asegura de que la imagen quepa en el contenedor*/
+    }
+
+                /* *SEPARADORES* */
+    
+        /*MÁRGENES (de la caja hacia afuera)*/
+    h1 {
+        /*márgenes específicos lado por lado*/
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+       
+        /*margen aplicado a todos los lados*/
+        margin: 10px;
+        
+        /*márgenes dos a dos // primer parámetro = márgenes eje y // segundo parámetro= márgenes eje x (laterales) */
+        /*se puede completar con más parámetros siendo cada uno de ellos para cada lado (en sentido horario empezando por arriba)*/
+        margin: 10px 50px ;
+
+        /*para centrar elementos en el eje x*/
+        margin: auto;
+
+    }
+        /*BORDES*/
+    div {
+        border-bottom: #a41906; /*modifica el estilo de la línea superior, podemos añadirle más características*/
+        border-top: #a41906; /*modifica el estilo de la línea superior, podemos añadirle más características*/
+        border-width: 5px; /*indica el ancho de la línea*/
+        border-style: dashed; /*representa el tipo de línea del borde, en este caso, línea discontinua*/
+        border: 5px solid green /*establece el mismo borde en la caja completa*/
+
+    }
+        /*PADDING (de la caja hacia adentro)*/
+    div{
+        /*márgenes específicos lado por lado*/
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        
+        /*padding aplicado a todos los lados*/
+        padding: 10px;
+        
+        /*padding dos a dos // primer parámetro = padding eje y // segundo parámetro= padding eje x (laterales) */
+        /*se puede completar con más parámetros siendo cada uno de ellos para cada lado (en sentido horario empezando por arriba)*/
+        padding: 10px 50px ;
+    }
+
+                    /* *TAMAÑOS* */
+    
+        /*UNIDADES ABSOLUTAS*/
+
+    /* in, cm, mm : no utilizadas porque son estáticas y no son responsive */
+
+        /*UNIDADES RELATIVAS*/
+    div{
+        padding: 5em; /* em : relativa al tamaño de letra del elemento (5em = 5 veces el tamaño de la letra del div)*/
+        padding: 5rem; /* rem : relativa al tamaño de letra del elemento raíz (el que tiene por defecto el documento. Suele ser 16)*/
+        padding: 5px; /* px : píxel, relativa a la resolución de la pantalla del dispósitivo */
+        padding: 5%; /* % : relativa a su elemento padre (elemento que está inmediatamente por encima)*/
+        padding: 50vh; /* relativo a la altura (height) de la ventana de visualización (viewport) (50vh = 50% de la altura de la ventana) */ 
+        padding: 5vw; /* relativo al ancho (width) de la ventana de visualización (viewport) (50vw = 50% del ancho de la ventana) */ 
+    }
+
+                    /* *POSICIONAMIENTO* */
+
+        /*DISPLAY (define el tipo de caja generada por un elemento*/
+    div {
+        display: none; /* hace desaparecer el elemento*/
+    }
+
+    div {
+        display: inline; /* establece el elemento como tipo inline (solo coge el espacio estrictamente necesario para incluir el texto que hay dentro).
+                         Tener cuidado cuando hay elementos de bloque dentro de otros elementos de bloque (tengo que transformar todo a inline)*/
+    }
+
+    div {
+        display: block; /* establece el elemento como tipo bloque*/
+    }
+
+    div {
+        display: inline-block; /* establece el elemento como tipo inline pero con propiedades de bloques (esto quiere decir que respeta márgenes y padding dentro de ese inline)*/
     }
