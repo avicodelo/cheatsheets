@@ -187,3 +187,32 @@ Opacidad de colores (va desde el 0 hasta el 1):
     div {
         display: inline-block; /* establece el elemento como tipo inline pero con propiedades de bloques (esto quiere decir que respeta márgenes y padding dentro de ese inline)*/
     }
+
+        /*POSITION (determinan cómo se colocan los elementos en la página) */
+    div{
+        position: static; /*establecida por defecto. Se apilan unos debajo de otros*/
+        
+        /**/
+        position: relative; /*relativo a su posición original (posición relativa)*/
+        left /*right, top, bottom*/: 150px; /*indicar cuanto tiene que moverlo desde la referencia dada*/
+        
+        /**/
+        position: absolute; /*fija el elemento en un punto de la ventana (posición absoluta)*/
+                /* para que tome como referencia el padre, hay que ponerle al PADRE "position:relative"*/
+        left /*right, top, bottom*/: 150px; /*indicar a qué distancia tiene que estar respecto a la referencia dada*/
+        
+        /**/
+        position: fixed; /*lo fija a un punto de la ventana haciendo que aunque se aplique scroll, se mantenga visible*/
+        left /*right, top, bottom*/: 150px; /*indicar cuanto tiene que moverlo desde la referencia dada*/
+        
+        /**/
+        position: sticky; /*cambia entre "relative" y "fija" dependiendo de la posición del scroll*/
+        top: 0; /*quiere decir que cuando se aplica scroll y la barra de navegación toca el top, empieza a acompañar a la página
+        
+        /**/
+        z-index: 1; /*sirve para superponer las capas si se solapan. Cuanto mayor sea el número (también valen nº negativos), más prioridad va a tener ese elemento para verse*/
+    
+        /**/
+        float:right /*controlamos hacia donde flotan los elementos, dejando disponible el hueco que ocupaba antes (es como si no ocuparan espacio)*/
+    }    
+    
