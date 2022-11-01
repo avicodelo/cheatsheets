@@ -584,6 +584,7 @@
             /*veces que queremos que se repita nuestra animación*/
                 animation-iteration-count: infinite;
 
+
             /*introducir retardo en la animación*/
                 animation-delay: 2s;
             
