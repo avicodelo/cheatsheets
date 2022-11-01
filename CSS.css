@@ -1,5 +1,7 @@
 /* awwwards: página interesante para ver webs con diseños creativos*/
 /* Formato jpg: no permite trasparencia del fondo de las imágenes // formato png: permite la trasparencia*/
+/* icononos gratuitos para enlazar desde la web: fontawesomeicons*/
+/* bancos de imágenes abiertas: unsplash, pixabay*/
 
 /**SELECTORES**/
 
@@ -173,7 +175,10 @@
                 border-style: dashed;
                 
             /*establece el mismo borde en la caja completa*/
-                border: 5px solid green
+                border: 5px solid green;
+
+            /*establece bordes redondeados*/
+                border-radius: 3px;
 
             }
 
@@ -354,6 +359,7 @@
             }
 
 /**RESPONSIVE**/
+       
         /*para expresar las reglas que queremos que se cumplan en pantallas <700px. Se ponen al final de la hoja y se pueden hacer varios tramos*/
             @media only screen and (max-width: 700px) {
                 .container {
@@ -367,8 +373,9 @@
             }
 
 /**FLEXBOX**/
-
-            div{
+    
+    /*PROPIEDADES CONTENEDOR FLEX*/
+            div {
             /*activar flexbox en el contenedor. Lo convierte en contenedor flex y sus hijos en elementos flex*/
                 display: flex;
 
@@ -378,5 +385,221 @@
 
                 /*establece dirección en columna. Main axis: vertical / Cross axis: horizontal */
                     flex-direction: column;
-                    
+  
+                /*crea una nueva línea si no hay espacio*/
+                    flex-wrap: wrap;
+
+                /*shortcut para establecer flex-direction y flex-wrap en un comando*/
+                    flex-flow: column wrap;
+
+                /*darle espaciamiento a los elementos*/
+                    gap: 10px;
+
+            /*controlar el posicionamiento en el MAIN AXIS de los elementos*/
+                /*centra los elementos*/
+                    justify-content:center;
+                
+                /*establece los elementos al principio (main axis). Es el valor por defecto*/
+                    justify-content:flex-start;
+                
+                /*establece los elementos al final*/
+                    justify-content:flex-end;
+                
+                /*establece un margen automático solo entre los elementos*/
+                    justify-content:space-between;
+                
+                /*establece un margen automático alrededor de los elementos (entre elementos es mayor que en el exterior)*/
+                    justify-content:space-around;
+                
+                /*establece un margen automático alrededor de los elementos repartiendo el espacio equitativamete*/
+                    justify-content:space-evenly;
+
+
+            /*controlar el posicionamiento en el CROSS AXIS de los elementos*/                    
+                /*centra los elementos*/
+                    align-items: center;
+                
+                /*expande los elementos para que tengan el mismo tamaño que el padre. Es el valor por defecto*/
+                    align-items: stretch;
+                
+                /*establece los elementos al principio (cross axis)*/
+                    align-items: flex-start;
+
+                /*establece los elementos al final (cross axis)*/
+                    align-items: flex-end;
+            }
+    /*PROPIEDADES ELEMENTO FLEX*/
+            div {
+            /*especifica el factor de crecimiento del elemento si hay espacio. Valor por defecto es 0. Si usamos esta propiedad, no respetará los espacios entre elementos*/
+                flex-grow: 3;
+
+            /*especifica el factor de decrecimiento del elemento si NO hay espacio. Valor por defecto es 1*/
+                flex-shrink: 3;
+
+            /*tamaño base de los elementos a partir del cual crece o decrece. Por defecto es "auto"*/
+                flex-basis: 100px; /*length | auto */
+
+            /*shortcut para las tres propiedades anteriores en ese orden*/
+                flex: 3 3 100px;
+
+            /*establece un orden en el elemento para ordenarlos. No se suele utilizar*/
+                order: 2;
+
+            /*sobrescribe la configuración del padre individualmente. Acepta mismas características que "aling-item"*/
+                align-self: center;
+            }
+
+/**GRID**/
+    
+    /*PROPIEDADES CONTENEDOR GRID*/
+            div {
+            /*activar grid en el contenedor. Lo convierte en contenedor grid y los hijos son elementos grid*/
+                display: grid;
+                
+                /*grid trabaja en dos dimensiones: rows y columns. Se especifican las dimensiones de la plantilla*/
+                    /*establece el patrón de las columnas con las fracciones donde la segunda columna es el doble que la primera*/
+                        grid-template-columns: 1fr 2fr;/*la primera columna tiene un tamaño 1/3 y la segunda 2/3*/
+
+                    /*establece el patrón de las filas con las fracciones donde la segunda columna es el doble de la primera y la tercera*/
+                        grid-template-rows: 1fr 2fr 1fr; /*tamaño de primera fila 1/4, segunda 2/4, tercera 1/3*/
+
+                    /*dar espacio entre las diferentes rejillas*/
+                        grid-gap: 10px;
+
+                    /*para repetir un patrón*/
+                        grid-template-rows: repeat(3/*veces que quiero repetir*/, 2fr 1fr);
+
+                    /*establecer tamaños mínimos y máximos con columnas automáticas*/
+                        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /*autofit: ajusta las columnas automáticamente para que cumplan las dimensiones máximas y mínimas*/
+                /*trabajar con áreas*/
+                    /*tenemos que establecer una matriz dándole nombres a las diferentes rejillas*/
+                        grid-template-areas: "nav nav ." /*al tener 3 columnas, si quiero que "nav" sólo ocupe 2 columnas, tengo que poner un punto para dejarlo vacío*/
+                                            "content1 content2 content3"; /*crea dos filas y 3 columnas con esos nombres*/
+            }
+    
+    /*PROPIEDADES ELEMENTO GRID*/
+        /*trabajar con dimensiones*/
+            div {
+            /*cuando quiero que ocupe más filas o columnas de las establecidas*/
+                /*indicarle a un elemento en qué línea de columna empieza y en cuál acaba (una grid con 3 columnas, tiene 4 líneas)*/
+                /*regla general: una rejilla empieza en "línea=nºrejilla" y acaba en "línea=(nºrejilla+1)"*/
+                    grid-column: 1 / 3; /*empieza en línea 1 y acaba en línea 3, es decir, ocupa 2 columnas*/
+                    grid-column: 1 / span 2; /*empieza en línea 1 y tiene una amplitud de 2, es decir, ocupa 2 columnas*/
+
+            
+            /*cuando quiero que respete las filas o columnas establecidas 
+                /*incar a un elemento que ocupe cualquier fila*/
+                    grid-row: 1; /*ocupa fila 1. Es igual que poner "grid-row: 1 / 2"*/
+                    grid-row: 3; /*ocupa fila 3. Es igual que poner "grid-row: 3 / 4"*/
+
+            /*Ejemplo*/
+                /*en una grid 3x4 envío el elemento a la columna 2 fila 4*/
+                grid-column:2;
+                grid-row:4;
+            }
+
+        /*trabajar con áreas*/
+            .div1 {
+            /*establecer la primera fila con el mismo elemento (le dimos a las 3 columnas el nombre de "nav")*/
+                grid-area: nav; /*poner nombre sin comillas*/
+            }
+            .div2 { 
+            /*establecer segundo elemento en fila 2, columna 1 (tenía nombre "content1" eb ejemplo anterior)*/
+                grid-area: content1;
+            }
+            .div3 {
+                /*establecer segundo elemento en fila 2, columna 2 (tenía nombre "content2" en ejemplo anterior)*/
+                    grid-area: content2;
+                }
+        
+/**DEGRADADOS Y SOMBRAS**/
+        /*degradado lineal*/
+            div {
+            /*se indica hacia la dirección que queremos que se aplique y los colores*/
+                background: linear-gradient(to right, red, yellow);
+            
+            /*se puede manipular el porcentaje del div que queremos que se vea un color*/
+                background: linear-gradient(to right, red, yellow 20%, red), url("imagen"); /*se pueden añadir más capas como una foto*/
+            }
+
+        /*degradado radial*/
+            div {
+            /*siempre empieza desde el centro por lo que no se le indica la dirección*/
+                background: radial-gradient(red, yellow);
+            }
+
+
+        /*sombra*/
+            div {
+            /*le podemos pasar 4 parámetros en el siguiente orden: sombra en eje x, sombra en eje y, radio de desenfoque, color*/
+                box-shadow: 5px 10px 15px gray;
+            }
+
+/**TRASNFORMACIONES*/
+        /*todas las transformaciones se aplican con el comando transform*/
+        /*para aplicar varias transformaciones al mismo contenedor se hacen en el mismo transform separadas por espacios*/
+            div {
+            /*trasladar. Se le añaden parámetros de (x, y)*/
+                transform: translate(50px, -20px);
+            
+            /*rotar. Se le añade (ángulo)*/
+                transform: rotate(45deg);
+            
+            /*escalar. Parámetro (factor de crecimiento)*/
+                transform: scale(1.7);
+           
+            /*sesgar. Parámetro (ángulo)*/
+                transform: skew(30deg);
+            }
+
+/**TRANSICIONES**/
+        /*animan un elemento html de un estado A a un estado B*/
+            div {
+            /*determinar propiedades que se verán afectadas por la transición*/
+                transition-property: transform /*propiedad css a la que quiero aplicarle la transición*/;
+
+            /*duración de la transición*/
+                transition-duration: 0.5s;
+            
+            /*tiempo de retardo en comenzar la transición*/
+                transition-delay: 1s;
+
+            /*tipo de transición que va a realizar alterando los tiempos de cambio. Cambio linear sería por defecto. Siempre misma velocidad en los cambios*/
+                transition-timing-function: ease-in-out;
+
+            /*shortcut de las anteriores*/
+                transition: transform 0.5s ease-in; /*si queremos que se aplique a todas las propiedades se le indica mediante "all"*/
+            }
+
+/**ANIMACIONES*/
+    /*PROPIEDADES DE ANIMATION*/
+            div {
+            /*llamamos a la animación que hemos creado*/
+                animation-name: nombreIdentificador;
+            
+            /*tiempo que tarda en completar la animación*/
+                animation-duration: 3s;
+
+            /*veces que queremos que se repita nuestra animación*/
+                animation-iteration-count: infinite;
+            }
+
+    /*CREAR UNA ANIMACIÓN*/
+        /*iniciar la animación e identificarla con un nombre*/
+            @keyframes nombreIdentificador {
+                /*establecer condiciones iniciales de nuestro contenedor*/
+                    from{
+                        margin-left: 100%;
+                    }
+
+                /*establecer condiciones intermedias. Esta condiciones se mantienen hasta llegar al "to" donde se aplican estrictamente
+                las propiedades que hayan en ese "to" (en el ejemplo, se volvería rojo pero finalizaría negro porque en "to" no le hemos cambiado el color*/
+                    50%{
+                        color:red;
+                    }
+                
+                /*establecer condiciones finales de nuestro contenedor*/
+                    to{
+                        margin-left: 0%;
+                    }
             }
