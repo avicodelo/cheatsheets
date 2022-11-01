@@ -429,6 +429,7 @@
                 /*establece los elementos al final (cross axis)*/
                     align-items: flex-end;
             }
+            
     /*PROPIEDADES ELEMENTO FLEX*/
             div {
             /*especifica el factor de crecimiento del elemento si hay espacio. Valor por defecto es 0. Si usamos esta propiedad, no respetará los espacios entre elementos*/
@@ -487,7 +488,6 @@
                     grid-column: 1 / 3; /*empieza en línea 1 y acaba en línea 3, es decir, ocupa 2 columnas*/
                     grid-column: 1 / span 2; /*empieza en línea 1 y tiene una amplitud de 2, es decir, ocupa 2 columnas*/
 
-            
             /*cuando quiero que respete las filas o columnas establecidas 
                 /*incar a un elemento que ocupe cualquier fila*/
                     grid-row: 1; /*ocupa fila 1. Es igual que poner "grid-row: 1 / 2"*/
@@ -511,7 +511,7 @@
             .div3 {
                 /*establecer segundo elemento en fila 2, columna 2 (tenía nombre "content2" en ejemplo anterior)*/
                     grid-area: content2;
-                }
+            }
         
 /**DEGRADADOS Y SOMBRAS**/
         /*degradado lineal*/
@@ -528,7 +528,6 @@
             /*siempre empieza desde el centro por lo que no se le indica la dirección*/
                 background: radial-gradient(red, yellow);
             }
-
 
         /*sombra*/
             div {
@@ -583,7 +582,6 @@
 
             /*veces que queremos que se repita nuestra animación*/
                 animation-iteration-count: infinite;
-
 
             /*introducir retardo en la animación*/
                 animation-delay: 2s;
