@@ -350,8 +350,8 @@
 
         <br>
 
-        <meter id="knowledge" min="0" max="100" value="60"></meter>
         <!-- barra medidora de datos de un evento (votación, memoria disponible...)-->
+        <meter id="knowledge" min="0" max="100" value="60"></meter>
         
         <br>
         
@@ -375,13 +375,13 @@
     <h3>*MULTIMEDIA/MEDIA*</h3><br>
     
     <button>Pulsa aquí</button> <!-- formato botón --><br>
-
-    <img src="images/background.jpeg" width="250" height="150" alt="Río entre montañas">
+    
     <!-- metemos una imagen con la ruta en src. Podemos establecer sus dimensiones-->
     <!-- En "alt" ponemos una descripción escueta de la foto por si la url cae -->
+    <img src="images/background.jpeg" width="250" height="150" alt="Río entre montañas">
     
-    <iframe src="https://marca.com" width="250" height="250"></iframe>
     <!-- se pueden insertar videos, pags web y archivos sin que llegue a estar en nuestra página -->
+    <iframe src="https://marca.com" width="250" height="250"></iframe>
 
     <!-- <object></object> para incrustar plugings y objetos no necesariamente visuales (es poco común) -->
 
@@ -414,6 +414,13 @@
     
     <script>document.write ("esto es un texto js") </script> <!-- para introducir código JS -->
     <noscript>ERROR. Tu navegador no soporta JS</noscript> <!-- si no se puede ejecutar el "script", salta este mensaje -->
+
+    <hr>
+
+    <h3>*ICONOS EN LA NUBE*</h3>
+    
+    <!-- primero hay que enlazar el script de la página en fontawesomeicons y después buscar la clase del icono. Con CSS les puedo dar color -->
+    <i class="nombredelicono"></i>
 </body>
 
 
