@@ -1,6 +1,6 @@
 /* awwwards: página interesante para ver webs con diseños creativos*/
 /* Formato jpg: no permite trasparencia del fondo de las imágenes // formato png: permite la trasparencia*/
-/* icononos gratuitos para enlazar desde la web: fontawesomeicons*/
+/* iconos gratuitos para enlazar desde la web: fontawesomeicons*/
 /* bancos de imágenes abiertas: unsplash, pixabay*/
 /* Ejemplos de páginas webs: dribbble.com*/
 
@@ -112,6 +112,19 @@
             h2 {
                 color: rgba(140, 255, 0.5)
             }
+    
+    /*Establecer colores como variables*/
+        /*establecemos el ámbito donde se va a aplicar el color. Si queremos un ámbito general lo guardaremos en "root"*/
+            :root{
+            /*ponemos el nombre personalizado precedido de dos guiones*/
+                --button-color: #ddd;
+            }
+
+        /*lo aplicamos en una clase*/
+            div{
+            /*el color va precedido de "var"*/
+                background-color: var(--button-color);
+            }
 
 /**IMÁGENES DE FONDO**/
 
@@ -181,6 +194,14 @@
             /*establece bordes redondeados*/
                 border-radius: 3px;
 
+            }
+
+    /*OUTLINES*/
+            div{
+            /*es una línea que no ocupa espacio y es dibujada encima del elemento*/
+            /*al hacer focus en un "input" se nos dibuja un outline*/
+            /*tiene mismas propiedades que "border*/ 
+                outline: 1px red;
             }
 
     /*PADDING (de la caja hacia adentro)*/
@@ -357,6 +378,9 @@
             
             /*establece sombras al texto. Datos que necesita: desplazamiento horizontal, desplazamiento vertical, dispersión de sombra, color*/
                 text-shadow: 1px 2px 2px red;
+
+            /*cambia el cursor cuando se pone encima del elemento*/
+                cursor: pointer;
             }
 
 /**RESPONSIVE**/
@@ -588,6 +612,9 @@
             
             /*para repetir la secuencia de alante hacia atrás*/
                 animation-direction: alternate;    
+            
+            /*especifica las características con las que se quedará el elemento después de completar la animación. Puede obtener varios parámetros*/
+                animation-fill-mode: forwards;
             }
 
     /*CREAR UNA ANIMACIÓN*/
