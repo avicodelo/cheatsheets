@@ -8,6 +8,9 @@
         *[argumento(s) de opción(es)]: indica los objetos sobre los que va a operar el comando
     # info: Si accedemos como #root podemos hacer o deshacer
             lo que queramos dentro del sistema, ¡incluido borrarlo!
+    apt: gestor de paquetes de linux
+    npm: gestor de paguetes de nodejs
+    yarn: gestor de paquetes alternativo a npm (no utiliza nodejs)
 
 **Comandos básicos
 
@@ -35,6 +38,7 @@
                     terminal
     sudo apt update: comprobar actualizaciones
     sudo apt upgrade: confirma las actualizaciones
+    apt install git: instalar git
     passwd : Cambio de contraseña.
     date: Muestra la hora y la fecha.
     cal: Muestra un calendario.
@@ -43,9 +47,10 @@
     ctrl+shift+t : abre una pestaña nueva de la consola
     history : abre el historial de comandos usados en la consola
     history -c : borra el historial de comandos de la consola
-    [comando] man : abre el manual del comando que necesitemos de manera detallada
+     man [comando] : abre el manual del comando que necesitemos de manera detallada
     [comando] --help : abre ayuda para recordarnos las opciones del comando
     host "url(sin www.)" : muestra la IP de la url
+    curl: transfiere datos desde o hacia un servidor
 
 **Establecer un alias:
 

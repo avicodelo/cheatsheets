@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootstrap Cheatsheet</title>
+
+<!-- https://getbootstrap.com/docs/4.6/components/alerts/ -->
 
 <!-- Es importante el árbol de directorios donde la carpeta de Boostrap no debe ser alterada ya que en las actulizaciones, todos esos
 documentos serán eliminados y reemplazados. -->
@@ -20,10 +22,196 @@ documentos serán eliminados y reemplazados. -->
 <body>
 
 <!-- Primero escribimos nuestro código HTML -->
+    <h1>EXPLICACIÓN BOOTSTRAP</h1>  <br>
 
-    <!-- HTML CONTENT START -->
-        <h1>Explicación uso de Bootstrap</h1>
-    <!-- HTML CONTENT END-->
+<!-- HTML CONTENT START -->
+
+        <h2 class="container mt-4 mb-4">Contenedores</h2>
+
+    <!-- Existen varios tipos de contenedores dependiendo del brakepoint-->
+        <div class="container bg-info border">Contenedor 1</div>
+        <div class="container-sm bg-info border">Contenedor 2</div>
+        <div class="container-md bg-info border">Contenedor 3</div>
+        <div class="container-lg bg-info border">Contenedor 4</div>
+        <div class="container-xl bg-info border">Contenedor 5</div>
+        <div class="container-fluid bg-info border">Contenedor 6</div>
+
+    <hr>
+
+        <div class="container mt-4 mb-4">
+                <h2>Grid system</h2>
+
+            <!-- El sisema de rejilla en bootstrap trabaja con el sistema de división en 12 columnas. -->
+            <!-- Se maneja con la clase "col" pero siempre ha de estar de un contenedor con clase "row" -->
+
+            <!-- Columnas tamaño equitativo -->
+                <div class="row">
+                    <div class="col bg-info border">col 1</div>
+                    <div class="col bg-info border">col 2</div>
+                    <div class="col bg-info border">col 3</div>
+                </div>
+
+            <!-- Columnas tamaño manual. Los tamaños deben sumar 12, si no, cuando no se especifica, reparte el hueco restante equitativamente -->
+            <!-- Para determinar el tamaño, hay que dividir 12 entre el número especificado (ej. col-2 = tamaño para que quepan 6 columnas) -->
+                <div class="row mt-2">
+                    <div class="col-5 bg-info border">col 1</div>
+                    <div class="col-2 bg-info border">col 2</div>
+                    <div class="col bg-info border">col 3</div>
+                </div>
+
+                <h3 class="mt-3 mb-3">Responsive</h3>
+
+            <!-- Podemos crear un sistema grid responsive añadiendo a la clase "col" el brakepoint. Podemos concatenar varios "col" -->
+                <div class="row">
+                    <div class="col-10 col-md-3 bg-info border">col 1</div>
+                    <div class="col-2 col-md-7 bg-info border">col 2</div>
+                </div>
+
+            <!-- Cuando no se especifica nada en el menor rango, toma el 100% -->
+                <div class="row mt-2">
+                    <div class="col-md-4 col-xl-2 bg-info border">col 1</div>
+                    <div class="col-4 col-md-4 col-xl-2 bg-info border">col 2</div>
+                    <div class="col-md-4 col-xl-2 bg-info border">col 3</div>
+                </div>
+
+            <!-- Cuando se van a especificar las mismas condiciones para todas las columnas se utiliza el siguiente comando -->
+            <!-- Tener en cuenta el cambio de filosofía ya que con este comando se especifican el número de columnas directamente -->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 mt-2">  <!-- row-cols-2 = dos columnas (cogerá 50%) -->
+                    <div class="bg-info border">col 1</div>
+                    <div class="bg-info border">col 2</div>
+                    <div class="bg-info border">col 3</div>
+                    <div class="bg-info border">col 4</div>
+                </div>
+
+                <h3 class="mt-3 mb-3">Alineamiento</h3>
+            
+        <!-- ALINEAR VERTICALMENTE -->
+                    <h4>Vertical</h4>
+            <!-- Usar clases que tienen nombre de propiedades flex CSS -->
+             <!-- Se pueden usar breakpoints: align-items-breakpoint-alignment -->
+                <!-- alinear arriba todos los hijos -->
+                    <div class="row bg-secondary align-items-start sized">
+                        <div class="col border bg-info">col 1</div>
+                        <div class="col border bg-info">col 2</div>
+                        <div class="col border bg-info">col 3</div>
+                    </div>
+
+                <!-- alinear centro todos los hijos -->
+                    <div class="row bg-secondary align-items-center sized">
+                        <div class="col border bg-info">col 1</div>
+                        <div class="col border bg-info">col 2</div>
+                        <div class="col border bg-info">col 3</div>
+                    </div>
+
+                <!-- alinear abajo todos los hijos-->
+                    <div class="row bg-secondary align-items-end sized">
+                        <div class="col border bg-info">col 1</div>
+                        <div class="col border bg-info">col 2</div>
+                        <div class="col border bg-info">col 3</div>
+                    </div>
+
+                <!-- todos los hijos ocupan el alto completo-->
+                    <div class="row bg-secondary align-items-end sized">
+                        <div class="col border bg-info">col 1</div>
+                        <div class="col border bg-info">col 2</div>
+                        <div class="col border bg-info">col 3</div>
+                    </div>
+
+                <!-- alinear un unico hijo donde quiera -->
+                    <div class="row bg-secondary sized">
+                        <div class="col border bg-info align-self-start">col 1</div>
+                        <div class="col border bg-info align-self-center">col 2</div>
+                        <div class="col border bg-info align-self-end">col 3</div>
+                        <div class="col border bg-info align-self-streched">col 3</div>
+                    </div>
+
+        <!-- ALINEAR VERTICALMENTE -->
+                    <h4>Horizontal</h4>
+
+             <!-- Usar clases que tienen nombre de propiedades flex CSS -->
+             <!-- Se pueden usar breakpoints: justify-content-breakpoint-alignment -->
+                    <!-- Alinear a la izquierda todos los hijos -->
+                        <div class="row bg-secondary mb-4 justify-content-start">
+                            <div class="col-2 bg-info border">col 1</div>
+                            <div class="col-2 bg-info border">col 2</div>
+                            <div class="col-2 bg-info border">col 3</div>
+                        </div>
+
+                    <!-- Alinear en el centro todos los hijos -->
+                        <div class="row bg-secondary mb-4 justify-content-center">
+                            <div class="col-2 bg-info border">col 1</div>
+                            <div class="col-2 bg-info border">col 2</div>
+                            <div class="col-2 bg-info border">col 3</div>
+                        </div>
+
+                    <!-- Alinear a la derecha todos los hijos -->
+                        <div class="row bg-secondary mb-4 justify-content-end">
+                            <div class="col-2 bg-info border">col 1</div>
+                            <div class="col-2 bg-info border">col 2</div>
+                            <div class="col-2 bg-info border">col 3</div>
+                        </div>
+
+                    <!-- Alinear con un espacio entre los hijos -->
+                        <div class="row bg-secondary mb-4 justify-content-between">
+                            <div class="col-2 bg-info border">col 1</div>
+                            <div class="col-2 bg-info border">col 2</div>
+                            <div class="col-2 bg-info border">col 3</div>
+                        </div>
+
+                    <!-- Alinear con un espacio alrededor de los hijos -->
+                        <div class="row bg-secondary mb-4 justify-content-around">
+                            <div class="col-2 bg-info border">col 1</div>
+                            <div class="col-2 bg-info border">col 2</div>
+                            <div class="col-2 bg-info border">col 3</div>
+                        </div>
+        </div>
+
+    <hr>
+
+        <div class="container">
+            <h2 class=" mt-4">Displays</h2>
+            
+        <!-- Exiten clases para controlar el display con breakpoints -->
+            <div class="row mb-4">
+                <div class="col-4 bg-info border d-none d-md-block">col 1</div>
+                <div class="col-4 bg-info border d-none d-lg-block" >col 2</div>
+                <div class="col-4 bg-info border">col 3</div>
+            </div>
+        </div>
+
+    <hr>
+
+        <div class="container">
+            <h2 class=" mt-4">Tamaño y espaciado</h2>
+            
+        <!-- El tamaño se expresa con "w"=width o "h"=height con incrementos de 25 -->
+            <div class="row mb-4 sized bg-secondary w-75">
+                <div class="col-3 bg-info border h-75">col 1</div>
+                <div class="col-3 bg-info border h-50" >col 2</div>
+                <div class="col-3 bg-info border h-25">col 3</div>
+                <div class="col-3 bg-info border h-auto">col 4</div>
+            </div>
+
+        <!-- Los espacios se expresan con "m"=margin y "p"=padding. El lado se expresa con la inicial y el eje con "x" o "y". Máximo tamaño es 5 -->
+            <div class="row mb-4 sized2 bg-secondary w-75 p-1">
+                <div class="col-3 bg-info border h-75 my-2">my-2</div>
+                <div class="col-3 bg-info border h-50 mx-2 pt-5" >mx-2 pt-5</div>
+                <div class="col-3 bg-info border h-25 px-4 py-2">px-4 py-2</div>
+                <div class="col-2 bg-info border h-auto m-1">m-1</div>
+            </div>
+        </div>
+
+        <div class="container my-5">
+            <h2 class=" mt-4">Componentes</h2>
+
+        <!-- Es necesario ver la documentación ya que son infinitos componentes -->
+        <a href="https://getbootstrap.com/docs/4.0/components/" target="_blank" >Componentes bootstrap</a>
+        </div>
+
+
+
+
+<!-- HTML CONTENT END-->
 
 <!-- Después linkamos los archivos script SIGUIENDO EL ORDEN INDICADO A CONTINUACIÓN -->
 
@@ -33,7 +221,7 @@ documentos serán eliminados y reemplazados. -->
 
         <!-- POPER -->
             <link href="js/popper.min.js">
-            
+
         <!-- BOOTSRAP JS -->
             <link href="bootstrap-4.6.2-dist/js/bootstrap.js">
     <!-- JS LINKS END -->
