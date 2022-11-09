@@ -47,7 +47,7 @@
     ctrl+shift+t : abre una pestaña nueva de la consola
     history : abre el historial de comandos usados en la consola
     history -c : borra el historial de comandos de la consola
-     man [comando] : abre el manual del comando que necesitemos de manera detallada
+    man [comando] : abre el manual del comando que necesitemos de manera detallada
     [comando] --help : abre ayuda para recordarnos las opciones del comando
     host "url(sin www.)" : muestra la IP de la url
     curl: transfiere datos desde o hacia un servidor
@@ -105,6 +105,14 @@
     $ git remote add upstream <URL> : añade una conexión nueva a un repo diferente
     $ git fetch upstream : carga la información de la fuente upstream
     $ git merge upstream/main : une la información cargada de upstream con mi main
+
+**Sass
+
+    Descargar node y npm:   1) añadimos la ruta al sistema: curl sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+                            2) descargamos: sudo apt get install -y nodejs
+    Instalar Sass: sudo npm install -g sass
+    Compilar carpeta Sass: sass --watch "carpeta_scss":"carpeta_css"
+    Evita crear la carpeta de map: sass --no-source-map
 
 **Guía comandos Markdown
     
