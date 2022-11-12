@@ -5,7 +5,6 @@
 
 
 //**SIGNOS DE PUNTUACIÓN**//
-
     //introducir un string (intercambiable con la comilla simple)
         ""  
     //introducir un string (intercambiable con la comilla doble)
@@ -15,6 +14,35 @@
     //utilizamos el punto para apuntar a una propiedad de un objeto 
         .property 
 
+
+//**OPERADORES LÓGICOS**//
+    //Comparación igualdad
+        2 == "2"
+            // output = true
+
+    //Comparación estrictamente igual (igual en tipo y valor)
+        2 === "2"
+            // output = false
+    
+    //Comparación desigualdad
+        3 != "3"
+            // output = false
+
+    //Comparación estrictamente desigual
+        3 !== "3"
+            // output = true
+
+    //Comparación mayor (>), menor (<), mayor igual (>=), menor igual (<=)
+        5 >= 3
+            // output = true
+
+    //Operador "y"
+        true && true
+            // output = true
+            
+    //Operador "o"
+        false || true
+            // output = true
 
 //**VARIABLES Y CONSTANTES**//
     //variable que tiene el "scope" de función (se arrastra hasta el final del código y tiene propiedad de hoisting).
@@ -59,7 +87,7 @@
                     surname: "Daniels",
                     age: 26
                 };
-                
+
             //acceso a las propiedades con punto
                 person.name; 
                         // output = "Jack"
@@ -91,6 +119,7 @@
 
             //acceder a los métodos con el punto. Recordar los paréntesis del método
                 personAccion.jump();
+
 
         //Arrays. [ ]
             //Cadena de datos que pueden ser de varios tipos
@@ -174,6 +203,51 @@
         str.toLowerCase();
 
 
+//**ARRAYS**//
+    //declara e inicializa un array
+        let miArray = ["red", "blue"];
+
+    //longitud del array
+        miArray.length;
+                    // output = 2
+    
+    //introducir nuevo dato al final del array sin usar funciones
+        miArray[2] = "green";
+        miArray[miArray.length] = "violet";
+
+    //añadir elementos al final del array con funcion
+        miArray.push("orange");
+
+    //añadir elementos al principio de un array
+        miArray.unshift("orange", "grey");
+    
+    //eliminar el último elemento del array
+            miArray.pop();
+
+    //eliminar el primer elemento del array
+        miArray.shift();
+
+    //imprimir el nuevo array
+        console.log(miArray);
+                    // output = ["grey", "red", "blue", "green", "violet"]
+
+    //conocer el índice del elemento
+        miArray.indexOf["red"];
+                    // output = 1
+
+    //Devolver los elementos de un array comprendidos entre dos índices sin incluir el último
+        miArray.slice(1, 3);
+                    // output = ["red", "blue"]
+
+    //Borrar elementos del array comprendidos entre dos íncides INCLUYENDO el último
+        miArray.splice(1, 3);
+                    // output = ["red", "blue", "green"] (para ver los elementos eliminados hay que meter la función en console.log())
+        console.log(miArray);
+                    // output = ["grey", "violet"]
+
+    //ordenar elementos del array por orden alfabético
+        miArray.sort();
+
 //**COMANDOS VARIOS**//
     //nos da como output el tipo de dato que es la variable que le sigue, en este caso num1.
         typeof num1;  
@@ -182,6 +256,44 @@
     //is Not a Number. Usado para comparaciones. NaN = Not a Number
         isNaN(str); 
                 // output = true
+
+    //This: hacer referencia al elemento al que pertenece
+        let ejemploThis = {
+            name: "Rodolfo",
+            talk() {
+                console.log(this);
+                            //output = {name: "Rodolfo", talk()}
+                console.log(`Me llamo ${this.name}`);
+                            // output = "Me llamo Rodolfo"
+            }
+        };
+        ejemploThis.talk();
+
+
+//**CONDICIONALES Y BUCLES**//
+    //Condicionales
+        if (num1 > num2) {
+            console.log(num1);
+        } else if (num1 == num2) {
+            console.log(num1, " ", num2);
+        } else {
+            console.log(num2);
+        }
+
+    //Opcionales (uso desaconsejado)
+        switch (option) {
+            case 1:
+                //bloque de código
+                break;
+            case 2:
+                //bloque de código
+                break;
+            case 3:
+                //bloque de código
+                break;
+            default:
+                //se ejecutará esta acción si ninguna de las anteriores se ejecutó
+        }
 
 
 

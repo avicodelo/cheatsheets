@@ -10,6 +10,7 @@
             lo que queramos dentro del sistema, ¡incluido borrarlo!
     apt: gestor de paquetes de linux
     npm: gestor de paguetes de nodejs
+    node "ruta_de_archivo_js": ejecuta el archivo js en la consola
     yarn: gestor de paquetes alternativo a npm (no utiliza nodejs)
 
 **Comandos básicos
