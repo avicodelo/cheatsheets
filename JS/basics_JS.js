@@ -1,3 +1,5 @@
+/*-----------------------------CONCEPTOS BÁSICOS DE JS-------------------------------------------*/
+
 
 /*Diferencia entre propiedad y método
     propiedad: es una característica del objeto y el output es un dato
@@ -6,9 +8,9 @@
 
 //**SIGNOS DE PUNTUACIÓN**//
     //introducir un string (intercambiable con la comilla simple)
-        ""  
+       ""  
     //introducir un string (intercambiable con la comilla doble)
-        '' 
+       '' 
     //introducir un string con variables. Las variables se indican: ${x} donde x es la variable
         ``  
     //utilizamos el punto para apuntar a una propiedad de un objeto 
@@ -257,6 +259,10 @@
         isNaN(str); 
                 // output = true
 
+    //potencia de un número
+        Math.pow(4, 2)
+                // output = 16
+
     //This: hacer referencia al elemento al que pertenece
         let ejemploThis = {
             name: "Rodolfo",
@@ -270,6 +276,30 @@
         ejemploThis.talk();
 
 
+//**FUNCIONES**//
+    //Nombradas
+        //Crear la función
+            function suma (num1, num2) {
+                //devolver un resultado
+                return num1 + num2;
+            };
+
+        //Llamar a la función
+            suma (2, 5);
+                    // output = 7
+
+    //Anónimas
+        //aquellas que no tienen nombre. Las podemos guardar en una variable o incrustarlas dentro de otra función
+            //En variable
+                const anonimus = function () { return "Hola anónimo"};
+            //En función
+                miArray.sort(function (a,b) { return a-b });
+        //Flecha
+            //funciones sencillas que "function" y "return" se cambian por una flecha
+                const area = (ancho, alto) => ancho * alto;
+                console.log(area(6,3));
+
+
 //**CONDICIONALES Y BUCLES**//
     //Condicionales
         if (num1 > num2) {
@@ -279,6 +309,14 @@
         } else {
             console.log(num2);
         }
+
+        //Abreviatura de condición if-else (operador ternario)
+            //condición    //si es true         //si es false
+            num1 >= num2 ? console.log(num1) : console.log(num2);
+
+            //ejemplo
+                let isMember = false;
+                console.log("La cuota es de: " + (isMember ? "2.00€" : "10.00€"));
 
     //Opcionales (uso desaconsejado)
         switch (option) {
@@ -295,5 +333,54 @@
                 //se ejecutará esta acción si ninguna de las anteriores se ejecutó
         }
 
+    //Bucle while
+        while (condition) {
+            //bloque de código
+        };
 
+    //Bucle for
+        //Tipo 1 (for)
+                //iniciamos i   //valor máximo de i    //contador de i
+            for (let i = 0;      i <= 10;               i++) {
+                //bloque de código
+            };
 
+        //Tipo 2 (for...of) (uso para elementos iterables. Coge cada item del iterable)
+            let arrayFor= [1,3,5,7];
+            for (const item of arrayFor){
+                console.log(item);
+            };
+            
+        //Tipo 3 (for...each) (exclusivo para arrays. Recorre cada uno de los items del array)
+            let array= [2,4,6,8];
+                                //dato del array  //índice del array
+            array.forEach(function(    item,            index){
+                console.log(`El elemento ${index} : ${item}`);
+            });
+
+            array.forEach((item,index)=> console.log(`El elemento ${index} : ${item}`));
+
+            //si no necesito el dato del array, le ponemos un guión bajo
+                array.forEach(function(_item, index){
+                    console.log(index);
+                });
+
+    //*Elementos de control de bucles
+        //finalizar el bucle en el momento que yo determine (break)
+        //le podemos dar etiquetas a los bucles
+            mainLoop: while(true){
+                while (true){
+                    console.log("Entró en el bucle interno");
+                    //romperá el bucle de fuera ya que le hemos especificado la etiqueta
+                        break mainLoop;
+                }
+            }
+
+        //continuar con el bucle a la siguiente iteración (continue)
+            for(let i=0; i<=5; i++ ){
+                //no procesará el número 3
+                    if (i===3){
+                        continue;
+                    }
+                    console.log("Usando 'continue': ", i );
+            };
