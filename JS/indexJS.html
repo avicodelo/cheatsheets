@@ -9,6 +9,7 @@
     <style>
         .grandparent{
             height: 500px;
+            width: fit-content;
             background-color: tomato;
         }
         .grandparent, .grandparent div{
@@ -27,6 +28,10 @@
         .child{
             background-color: khaki;
         }
+
+        .flex-column{
+            flex-direction: column-reverse;
+        }
     </style>
 </head>
 <body>
@@ -35,7 +40,7 @@
     <div class="grandparent" id="grandparent">
         <div class="parent" id="parent1">
             <div class="child" id="child1">child 1</div>
-            <div class="child" id="child2">child 2</div>
+            <div class="child" id="child2"><span>child 2</span></div>
         </div>
         <div class="parent" id="parent2">
             <div class="child" id="child3">child 3</div>
