@@ -275,6 +275,9 @@
         };
         ejemploThis.talk();
 
+    //indica el valor de un elemento
+        elemento.value;
+
 
 //**FUNCIONES**//
     //Nombradas

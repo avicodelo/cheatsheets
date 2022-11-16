@@ -99,6 +99,9 @@
                 
             //Cambiar estilos CSS de un elemento desde JS (formato camelCase quitando el guión de la propiedad)
                 parent1.style.backgroundColor = "#333";
+
+                //eliminar una propiedad (si está hardcodeada no me dejará cambiarla por clases)
+                    parent1.style.removeProperty("background-color");
                 
                 //se pueden crear funciones para cambiar los estilos
                     const changeTextColor = (element, color, property) => element.style.color = color;
@@ -115,15 +118,93 @@
                 newDiv.id = "new-div";
                 newDiv.classList.add("child");
                 newDiv.textContent = "child 2.5";
-
-        //Elimina un elemento por completo
-            document.removeChild
-
-        //Añade un elemento hijo al elemento que le indicamos
+        
+        //Añade un elemento hijo al elemento que le indicamos. Un mismo nodo no puede aparecer dos veces
             parent1.appendChild(newDiv);
 
-        //Reemplaza un elemento por otro
-            document.replaceChild
+        //Clonar un nodo
+            let newDiv2 = newDiv.cloneNode(true);
+            parent2.appendChild(newDiv2);
+            newDiv2.textContent="child 2.6";
+
+        //Reemplaza un elemento por otro. Si el nuevo existe en el DOM lo elimina y lo pone en la nueva posición
+        //el viejo se puede guardar en una variable
+            //guardado en variable  //nodo padre       //nodo hijo nuevo  //nodo viejo
+            newDiv2             =    parent2.replaceChild(elementsAll[2],    newDiv2);
 
         //Inserta algo antes de un elemento
-            document.insertBefore
+            let newDiv3 = newDiv.cloneNode(true);
+            newDiv3.textContent = "child 2.7";
+            parent2.before(newDiv3);
+
+        //Elimina un elemento por completo. Se puede hacer de dos formas
+            parent1.removeChild(newDiv);
+            newDiv2.remove();
+
+            
+//**EVENTOS**//
+    /*link de eventos: https://developer.mozilla.org/en-US/docs/Web/Events*/
+    
+        //Evento incrustado directamente en  el elemento y precedido de "on" y añadiéndole una función. Sólo puedo indicar un evento
+            elementsAll[0].onclick = function(){
+                grandParent.style.backgroundColor = "red"
+            };
+
+        //Evento establecido con un método sin "on". Podemos añadir varios a la vez
+            element.addEventListener ("click", function(e){
+            //"e" representa la variable del evento que se ha disparado
+            //"target" es una propiedad del evento que apunta al objeto sobre el que se produjo el evento
+                e.target.style.removeProperty("background-color");
+                e.target.classList.toggle("child");
+                e.target.classList.toggle("parent");
+            });
+        //Viendo algunos eventos
+            let email = document.querySelector("#email");
+            
+            //cuando coge el foco
+                email.addEventListener("focus", inputListener);
+           
+            //cuando tenía el foco y lo pierde    
+                email.addEventListener("blur", inputListener);
+
+            //cuando entra el ratón
+                document.querySelector(".container").addEventListener("mouseover", inputListener, false);
+ 
+            //cuando sale el ratón
+                document.querySelector(".container").addEventListener("mouseout", inputListener);
+
+            //cuando se pulsa una tecla
+                email.addEventListener("keydown", inputListener);
+
+            //cuando se suelta una tecla
+                email.addEventListener("kewyup", inputListener);
+
+            //cuando se mueve el ratón
+                document.onmousemove = function (e) {
+                    email.setAttribute ("placeholder", `X: ${e.clientX}; Y: ${e.clientY}`)
+                };
+
+        //función externa para los eventos
+            function inputListener(e){
+                //imprime el tipo de evento que ha tenido lugar
+                    console.log("Tipo de evento: ", e.type);
+            };
+            
+    
+
+    //Propiedades de los eventos
+        element.addEventListener ("click", function(e){    
+            //etiqueta del tgt
+                console.log(e.target.tagName);
+                                // output: DIV (devuelve la etiqueta del target en MAYÚSCULAS)
+            
+            //controlamos si está pulsada la tecla ctrl
+            //también podemos comprobar las teclas shift: shiftKey y alt: altKey
+                if (e.ctrlKey){
+                    element.classList.toggle("ctrl-text");
+                };
+
+            //posición del ratón (respecto al viewport)
+                console.log(`X: ${e.clientX}; Y: ${e.clientY}`);
+
+        });
