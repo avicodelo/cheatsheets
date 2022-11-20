@@ -80,7 +80,7 @@
                     element.innerHTML += " <h4>(añadido desde JS)</h4>";
                     element.style.flexDirection= "column";
                 //ignora las etiquetas HTML
-                    elementsAll[1].textContent = "Texto cambiado"
+                    elementsAll[1].textContent = "Texto cambiado";
 
             //Array de las clases del elemento (classList)
                 //añadir una nueva clase
@@ -104,12 +104,15 @@
                     parent1.style.removeProperty("background-color");
                 
                 //se pueden crear funciones para cambiar los estilos
-                    const changeTextColor = (element, color, property) => element.style.color = color;
+                    const changeTextColor = (element, color) => element.style.color = color;
                     changeTextColor(elementsAll[1], "red");
 
         //METHOD
             //Establece el atributo de un elemento. Si existe lo sobrescribe y si no está, lo crea
                 parent1.setAttribute("name", "nombre_parent1");
+
+            //devuelve el valor del atributo
+                parent1.getAttribute("name");
 
     //Creación y eliminación de elementos
         //Crear un elemento que aún no está presente en el DOM
@@ -136,6 +139,12 @@
             let newDiv3 = newDiv.cloneNode(true);
             newDiv3.textContent = "child 2.7";
             parent2.before(newDiv3);
+
+        //Inserta antes de un elemento especificando cada uno de los parámetros
+        //padre donde se quiere insertar  //elemento que quiero insertar  //hijo delante del cual lo quiero insertar
+                padre.insertBefore(               elementoInsertar,               hijoReferencia);  
+
+                
 
         //Elimina un elemento por completo. Se puede hacer de dos formas
             parent1.removeChild(newDiv);
@@ -179,10 +188,16 @@
             //cuando se suelta una tecla
                 email.addEventListener("kewyup", inputListener);
 
+            //cuando se cambia el input de un "input". Va cambiando inmediatamente
+                email.addEventListener("input", inputListener);
+
             //cuando se mueve el ratón
                 document.onmousemove = function (e) {
                     email.setAttribute ("placeholder", `X: ${e.clientX}; Y: ${e.clientY}`)
                 };
+
+            //evitar el comportamiento por defecto
+                email.preventDefault();
 
         //función externa para los eventos
             function inputListener(e){

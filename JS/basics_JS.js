@@ -224,7 +224,7 @@
         miArray.unshift("orange", "grey");
     
     //eliminar el último elemento del array
-            miArray.pop();
+        miArray.pop();
 
     //eliminar el primer elemento del array
         miArray.shift();
@@ -233,7 +233,7 @@
         console.log(miArray);
                     // output = ["grey", "red", "blue", "green", "violet"]
 
-    //conocer el índice del elemento
+    //conocer el índice del elemento. Si no existe el elemento, devuelve un -1
         miArray.indexOf["red"];
                     // output = 1
 
@@ -241,7 +241,7 @@
         miArray.slice(1, 3);
                     // output = ["red", "blue"]
 
-    //Borrar elementos del array comprendidos entre dos íncides INCLUYENDO el último
+    //Borrar elementos del array. Primer número es donde empieza a borrar y el segundo el número de elementos
         miArray.splice(1, 3);
                     // output = ["red", "blue", "green"] (para ver los elementos eliminados hay que meter la función en console.log())
         console.log(miArray);
@@ -249,6 +249,25 @@
 
     //ordenar elementos del array por orden alfabético
         miArray.sort();
+
+    //invertir el array
+        miArray.reverse();
+
+    //unir los elemenetos del array en un string (indicarle el separador que queremos aplicar)
+        miArray.join("");
+
+
+//**OBJETOS**//
+    //Devuelve los valores de las propiedades de un objeto en forma de array
+        Object.values(nombreObjeto);
+
+    //Devuelve los nombres de las propiedades de un objeto en forma de array
+        Object.keys(nombreObjeto);
+
+    //Devuelve un array donde cada elemento es otro array que tiene dos datos: el nombre y el valor de la propiedad
+        Object.entries(nombreObjeto);
+                    // output = [["prop1","valor1"], ["prop2", "valor2"], ...]
+    
 
 //**COMANDOS VARIOS**//
     //nos da como output el tipo de dato que es la variable que le sigue, en este caso num1.
