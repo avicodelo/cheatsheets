@@ -247,8 +247,19 @@
         console.log(miArray);
                     // output = ["grey", "violet"]
 
-    //ordenar elementos del array por orden alfabético
+    //Ordenar elementos del array por orden alfabético. Para determinar el modo de ordenarlo, introducir una función
         miArray.sort();
+        miArray.sort((a,b) => a-b);
+
+    //Filtrar un array. Devuelve un array con los elementos filtrados por la función (la función tiene que devolver un booleano)
+        miArray.filter(element => element > 5);
+
+
+    //Mapear un array. Recorre un array y devuelve los elementos indicados en la función
+        miArray.map(element => element.property);
+
+    //Unifica los elementos de un array. Hay que introducirle el valor previo y el que se quiere añadir
+        miArray.reduce((suma, parametro2) => suma + parametro2, 0)
 
     //invertir el array
         miArray.reverse();
@@ -267,7 +278,116 @@
     //Devuelve un array donde cada elemento es otro array que tiene dos datos: el nombre y el valor de la propiedad
         Object.entries(nombreObjeto);
                     // output = [["prop1","valor1"], ["prop2", "valor2"], ...]
-    
+
+    //Copias de objetos
+        //Shallow. Copia superficial de las propiedades de primer nivel
+            //forma antigua
+                let copy1Old = Object.assign({}, obj1);
+
+            //forma moderna (también válida para arrays)
+                let copy1New = {...Car};
+
+        //Deep. Copia profunda de todas las propiedades de un objeto
+            let copy2 = JSON.parse(JSON.stringify(obj1));
+        
+
+//**CONSTRUCTORES**//
+    //Forma antigua de construir objetos mediante funciones (antes de ES6)
+        //Crear un constructor de objeto
+            function Car(brand, color, maxSpeed){
+                this.brand = brand;
+                this.color = color;
+                this.maxSpeed = maxSpeed;
+                this.increaseSpeed= function(){
+                    return this.maxSpeed +=50;
+                };
+            };
+
+        //Crear un nuevo objeto con la plantilla
+            let car1 = new Car("Mercedes", "red", 300);
+            let car2 = new Car("BMW", "blue", 500);
+
+        //Añadir una propiedad o método a un elemento en concreto
+            car1.reduceSpeed = function(){
+                return this.maxSpeed -= 50;
+            };
+
+        //Añadir una propiedad o método al prototipo de objetos
+        //Si algún objeto ya posee ese mismo método o propiedad, no lo hereda y obtiene el valor que se le ha introducido específicamente
+            Car.prototype.minSpeed = function (){
+                return this.maxSpeed -= 200;
+            };
+            console.log(car2.minSpeed());
+
+        //Añadir un subojeto dependiente de otro (herencia) que tendrá las propiedades del padre y las suyas propias
+            function Sport (brand, color, maxSpeed, nDoors){
+                Car.call(this, brand, color, maxSpeed)
+                this.nDoors = nDoors;
+                this.trunk = false;
+            };
+
+        //Unificar los prototipos en la herencia
+            Sport.prototype = Object(Car.prototype);
+
+    //Forma nueva de crear objetos mediante clases (ES6)
+        //Crear la clase
+            class Book{
+                //las propiedades se establecen en el constructor
+                    constructor(title, author, year, pages){
+                        this.title = title;
+                        this.author = author;
+                        this.year = year;
+                        this.pages = pages;
+                        this.created = 1980;
+                    };
+                //las funciones van fuera del constructor
+                    getSumary(){
+                        console.log(`${this.title} was written by ${this.author} in ${this.year}`);
+                    };
+                    getType(){
+                        console.log(`Common book`);
+                    };
+
+                //existen funciones estáticas que no dependen de elementos de la clase
+                    static timeToRead (libro, speed){
+                        return `Necesitarás ${libro.pages / speed} días para leer el libro`;
+                    }
+            };
+
+        //Crear nuevo objeto
+            const book1 = new Book("Metamorfosis", "Franz Kafka", 1915, 300);
+                console.log(book1);
+                book1.getSumary();
+                console.log(Book.timeToRead(book1, 10));
+
+        //Establecer herencia con función polimórfica (misma función con diferente acción)
+            class Magazine extends Book{
+                getType(){
+                    console.log("Magazine");
+                };
+            };
+            
+        //Objeto magazine
+            const maga1= new Magazine ("Super Pop", "Alguien", 2010, 30);
+                console.log(maga1);
+
+        //Otra clase para modificar datos del padre
+            class Comic extends Book{
+                constructor(title, year, type, pages){
+                    super(title, "Stan Lee", year, pages)
+                    this.type = type;
+                }
+
+                //llamar a un método para ampliar información
+                    getType(){
+                        console.log("It isn´t a "), super.getType();
+                    };
+            };
+        
+        //Objeto comic
+            const comic1 = new Comic ("Spiderman", 1998, "superheroes", 131);
+                console.log(comic1);
+                comic1.getType();
 
 //**COMANDOS VARIOS**//
     //nos da como output el tipo de dato que es la variable que le sigue, en este caso num1.
@@ -279,8 +399,14 @@
                 // output = true
 
     //potencia de un número
-        Math.pow(4, 2)
+        Math.pow(4, 2);
                 // output = 16
+
+    //número aleatorio entre 0 y 1
+        Math.random();
+
+    //Trunca el número a su entero
+        Math.floor(3.58);
 
     //This: hacer referencia al elemento al que pertenece
         let ejemploThis = {
@@ -372,8 +498,16 @@
             for (const item of arrayFor){
                 console.log(item);
             };
+
+        //Tipo 3 (for...in) (uso para objetos)
+            let obj ={name:"Periquito", edad: 27};
+            for (const property in obj){
+                console.log(property, obj[property]);
+            }   
+                        // output: name Periquito
+                                // edad 27 
             
-        //Tipo 3 (for...each) (exclusivo para arrays. Recorre cada uno de los items del array)
+        //Tipo 4 (for...each) (exclusivo para arrays. Recorre cada uno de los items del array)
             let array= [2,4,6,8];
                                 //dato del array  //índice del array
             array.forEach(function(    item,            index){

@@ -221,5 +221,88 @@
 
             //posición del ratón (respecto al viewport)
                 console.log(`X: ${e.clientX}; Y: ${e.clientY}`);
-
         });
+
+
+//**JSON Y FETCH**//
+    /*Practicar con JSON de prueba de una REST API: https://jsonplaceholder.typicode.com */
+        //construimos el objeto de ejemplo
+            const ejemplo = {
+                name: "Eustaquio",
+                surname: "Parra",
+                age: 16
+            }
+        //Cambiar formato JS a JSON (es igual que JS pero las propiedades son strings (van entre comillas))
+            const ejemploJSON = JSON.stringify(ejemplo);
+                console.log(ejemploJSON);
+
+        //Devolver un JSON a formato JS
+            const ejemploJS = JSON.parse(ejemploJSON);
+                console.log(ejemploJS);
+
+    //Método 1 para controlar promesas (el código continúa con las líneas siguientes antes de ejecutar la promesa)
+        //Crear una promesa con fetch
+            const url = "https://jsonplaceholder.typicode.com/users";
+            fetch(url);
+        
+        //Resolver la promesa de fetch
+            fetch(url).then (response => console.log(response));
+
+        //Cuando pedimos los datos JSON, se nos crea otra promesa a resolver
+            fetch(url)
+                .then (response => response.json())
+                .then (data => console.log(data));
+
+        //Aplirle funciones a los datos
+            function printNames(array){
+                array.forEach(user => console.log(user.name));
+            };
+            fetch(url)
+                .then (response => response.json())
+                .then (data => printNames(data));
+
+        //Lanzar y capturar errores
+            fetch(url)
+            .then(response => {
+                if (response.ok){
+                    return response.json();
+                }
+                //lanza el error si no se cumple el if
+                    throw Error("Hay problemas con la información " + response.statusText);
+            })
+            .then(data => printNames(data))
+            //capturamos el error
+                .catch(error => console.log(error));
+
+    //Método 2 para controlar promesas (el código se para hasta que ejecuta la promesa). Obligatorio usar Assync - await y meterlo en una función
+        async function requestUrl(url) {
+            const response = await fetch(url);
+            const data = await response.json();
+            console.log(data);
+        };
+        
+    //Hacer un POST al servidor con información
+        const POST_url = "https://jsonplaceholder.typicode.com/posts";
+
+        //objeto que queremos enviar (tiene que seguir la estructura de los elementos del servidor)
+            const toSend = {
+                title : "Título del post",
+                body : "Aquí va el texto del body del post. Un artículo muy interesante"
+            }
+        
+        //es necesario indicar información de la acción que se quiere ejecutar (se tienen que mantener los nombres de las propiedades estándar)
+            const http = {
+                method: "POST",
+            //son datos de los headers que se pueden cambiar
+                headers: {
+                //los nombres de las propiedades tienen que ir entre comillas cuando se usa nomenclatura no permitida por JS (ej: el guión)
+                    "Content-types": "application/json"
+                },
+            //transformar los datos a JSON
+                body: JSON.stringify(toSend)
+            };
+
+        //Necesita dos parámetros para hacer post
+            fetch(POST_url, http)
+                .then(response => response.json())
+                .then(data=>console.log(data));
