@@ -197,7 +197,7 @@
                 };
 
             //evitar el comportamiento por defecto
-                email.preventDefault();
+                e.preventDefault();
 
         //función externa para los eventos
             function inputListener(e){
@@ -213,6 +213,9 @@
                 console.log(e.target.tagName);
                                 // output: DIV (devuelve la etiqueta del target en MAYÚSCULAS)
             
+            //clase del tgt
+                console.log(e.target.className);
+
             //controlamos si está pulsada la tecla ctrl
             //también podemos comprobar las teclas shift: shiftKey y alt: altKey
                 if (e.ctrlKey){
@@ -225,7 +228,8 @@
 
 
 //**JSON Y FETCH**//
-    /*Practicar con JSON de prueba de una REST API: https://jsonplaceholder.typicode.com */
+    /*Practicar con JSON de prueba de una REST API: https://jsonplaceholder.typicode.com 
+                                                    https://reqres.in */
         //construimos el objeto de ejemplo
             const ejemplo = {
                 name: "Eustaquio",
@@ -253,13 +257,19 @@
                 .then (response => response.json())
                 .then (data => console.log(data));
 
-        //Aplirle funciones a los datos
-            function printNames(array){
-                array.forEach(user => console.log(user.name));
-            };
+        //Aplicarle funciones a los datos
+        /*Para guardar los datos que nos llegan, tenemos que hacerlo en una variable y sólo tendrá validez
+        en las funciones y eventos que ocurran después de que recibamos los datos*/    
+            let users = [];
+            function printNames(){
+                    users.forEach(user => console.log(user.name));
+                };
             fetch(url)
                 .then (response => response.json())
-                .then (data => printNames(data));
+                .then (data => { 
+                    users = [...data];
+                    printNames()
+                });
 
         //Lanzar y capturar errores
             fetch(url)
@@ -306,3 +316,55 @@
             fetch(POST_url, http)
                 .then(response => response.json())
                 .then(data=>console.log(data));
+
+    /*Función de LOGIN completa (para usar, cambiar datos)*/
+        function login(e) {
+            e.preventDefault();
+
+            const userData = {
+                email: email.value,
+                password: pass.value
+            };
+        
+            const getInfo = {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userData)
+            };
+        
+        //comunicación de login con el servidor
+            fetch(Login_URL, getInfo)
+                .then(response => response.json())
+            //captura un error y lo lanza por pantalla en forma de alert
+                .then(data => data.error ? alert(data.error) : fetchUsers());
+        
+        //función asíncrona para obtener las distintas páginas del servidor
+            async function fetchUsers(){
+                let response = await fetch(Users_URL);
+                let usersList = await response.json();
+            //guardar datos en una variable
+                let users = [...usersList.data];
+            //recorrer todas las páginas y acumularlas en una variable
+                for(let i=2; i<=usersList.total_pages;i++){
+                                                //nomenclatura std cuando server está paginado
+                    response = await fetch(`${Users_URL}?page=${i}`);
+                    usersList = await response.json();
+                    users.push(...usersList.data);
+                
+                };    
+            };
+        };
+
+        //alternativa para recorrer diferentes pags sin función asíncrona
+        /*function fetchUsersV2(url) {
+            fetch(url)
+                .then(response=>response.json())
+                .then(datas=>{
+                    users.push(...datas.data)
+                    if(datas.page < datas.total_pages){
+                        fetchUsersV2(`${url}?page=${datas.page+1}`);
+                    }else{
+                        console.log(users);
+                    }
+                });
+        };*/
