@@ -142,7 +142,7 @@
 
         //Inserta antes de un elemento especificando cada uno de los parámetros
         //padre donde se quiere insertar  //elemento que quiero insertar  //hijo delante del cual lo quiero insertar
-                padre.insertBefore(               elementoInsertar,               hijoReferencia);  
+                parent1.insertBefore(               newDiv2,                   elementsAll[1] );  
 
                 
 

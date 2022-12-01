@@ -1,3 +1,8 @@
+**Enlaces de interés
+    js13kgames: competición de videojuegos de HTML5 (no puede pesar más de 13KB). Se hace del 13 de ago al 13 de sep
+    electronjs: hacer aplicaciones de escritorio en HTML5
+
+
 **Conceptos generales
     Terminal / Consola : Entorno de entrada/salida de texto, ejecutada por el programa konsola
     Shell Bash : Intérprete de la línea de comandos, se encarga de ejecutarlos.
@@ -10,6 +15,7 @@
             lo que queramos dentro del sistema, ¡incluido borrarlo!
     apt: gestor de paquetes de linux
     npm: gestor de paguetes de nodejs
+    npx: similar a npm pero con lógica (ejecutar acciones automáticas...)
     node "ruta_de_archivo_js": ejecuta el archivo js en la consola
     yarn: gestor de paquetes alternativo a npm (no utiliza nodejs)
 
@@ -47,6 +53,7 @@
     nano : abre un editor de documentos y se puede modificar el contenido
     ctrl+shift+t : abre una pestaña nueva de la consola
     history : abre el historial de comandos usados en la consola
+    history | grep npx: nos busca en el historial los comandos que tengan el string indicado (npx en este caso)
     history -c : borra el historial de comandos de la consola
     man [comando] : abre el manual del comando que necesitemos de manera detallada
     [comando] --help : abre ayuda para recordarnos las opciones del comando
@@ -57,7 +64,7 @@
 
     1) (en consola) code /home/aitor/.bashrc : abre visualstudio con el archivo bash y 
             sirve para crear un alias
-    2)(en VS) alias goCode="cd <ruta>"
+    2)(en VS) alias goCode="cd <ruta>":
             # goCode es el nombre del alias
     3) (en consola) source ~/.bashrc : acepta el código y lo mantiene en la memoria 
             aunque se apague el ordenador
@@ -109,11 +116,41 @@
 
 **Sass
 
-    Descargar node y npm:   1) añadimos la ruta al sistema: curl sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-                            2) descargamos: sudo apt get install -y nodejs
-    Instalar Sass: sudo npm install -g sass
-    Compilar carpeta Sass: sass --watch "carpeta_scss":"carpeta_css"
-    Evita crear la carpeta de map: sass --no-source-map
+    Descargar node y npm:   1) curl sL https://deb.nodesource.com/setup_16.x | sudo -E bash - :  añadimos la ruta al sistema
+                            2) sudo apt get install -y nodejs: se descarga
+    sudo npm install -g sass: Instalar Sass
+    sass --watch "carpeta_scss":"carpeta_css": Compilar carpeta Sass
+    sass --no-source-map: Evita crear la carpeta de map
+
+**Typescript
+
+    Descargar typescript en un proyecto local: 1) cd "directorio": Ir al directorio
+                                               2) npm install typescript --save-dev: Aplicar la instalación
+    npx tsc -version: comprobar la versión de typescript
+    npx tsc "ruta del archivo": transpilar un archivo ts
+    npx tsc --init: entrar en opciones de ts 
+    Configurar ts para que compile en js ES6:  {
+                                                    "compilerOptions":{
+                                                        "target": "es6",
+                                                        "module": "commonjs"
+                                                    }
+                                                }
+    npx tsc -p tsconfig.json: forzar la configuración que le hemos pasado (por si no carga automáticamente)
+    npx tsc --target es3 (es6...): indicar mediante comandos la versión de js de la transpilación 
+    
+**JEST
+    nmp instal --save-dev jest: descargar jest
+    ./node_modules/.bin/jest --init: inicializar jest
+    npm test: pasar el test (1ª forma)
+    npx jest: pasar el test (2ªforma)
+    en el archivo jest.config.js --> buscar la línea 124 y quitar el comentario --> establecer: rootDir:"ruta del archivo"
+
+**REACT
+    npx create-react-app "nombre_proyecto": crea el entorno de React par comenzar con el proyecto (nombre del proyecto sin mayúsculas ni espacios)
+    cd "nombre_proyecto": nos lleva a la ruta de nuestro proyecto
+    npm stat: arrancamos el servidor virtual
+
+    npm install: cuando clono un repo de react que no tiene node_modules
 
 **Guía comandos Markdown
     

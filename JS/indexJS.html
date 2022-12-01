@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,14 @@
     <title>JS cheatsheet</title>
 
     <style>
-        .grandparent{
+        .grandparent {
             height: 500px;
             width: fit-content;
             background-color: tomato;
         }
-        .grandparent, .grandparent div{
+
+        .grandparent,
+        .grandparent div {
             border: 3px solid black;
             box-sizing: border-box;
             display: flex;
@@ -21,35 +24,39 @@
             padding: 25px;
         }
 
-        .parent{
+        .parent {
             background-color: darkcyan;
         }
 
-        .child{
+        .child {
             background-color: khaki;
         }
 
-        .ctrl-text{
+        .ctrl-text {
             font-size: 1.5rem;
         }
 
-        .flex-column{
+        .flex-column {
             flex-direction: column-reverse;
         }
 
-        .email{
-            margin : 3rem;
+        .email {
+            margin: 3rem;
             margin-right: 0;
         }
-        .container{
+
+        .container {
             margin: 1.5rem 0;
             height: 100px;
-            border:2px solid brown;
+            border: 2px solid brown;
         }
     </style>
 </head>
+
 <body>
-    
+
+
+    <!-- --------JS PLANO ---------- -->
     <h1>ACCESO AL DOM</h1>
     <div class="grandparent" id="grandparent">
         <div class="parent" id="parent1">
@@ -68,5 +75,28 @@
     </div>
 
     <script src="DOM_JS.js"></script>
+
+<!-- --------REACT ---------- -->
+
+<!-- creamos el div donde estará todo nuestro proyecto -->
+    <div id="root">
+
+    </div>
+
+<!-- scripts de react  -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+<!-- script de babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        const root = document.getElementById("root");
+        const title = <h1>Saludos desde React</h1>
+    // acceder al DOM de react introduciéndole el elemento 1 en el elemento 2
+        ReactDOM.render(title, root)
+    </script>
+
 </body>
+
 </html>
