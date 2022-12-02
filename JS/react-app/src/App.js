@@ -8,6 +8,15 @@
       import {SecondComponent, ThirdComponent} from "./components/FirstComponent";
     
     function App() {
+      const ejemplo = {
+        electronica: [
+            {id: 27, producto: "Televisor", marca: "LG", modelo: "XP7302", precio: 399},
+            {id: 28, producto: "Equipo Hi-FI", marca: "Samsung", modelo: "VF235", precio: 179}
+        ],
+        alimentacion: [
+            {id: 30, producto: "Galletas", marca: "María", precio: 0.90},
+            {id: 31, producto: "Ensalada", marca: "Imizurra", precio: 1.30}
+        ]};
       return (
         <div className="App">
           {/*Incrustamos nuestro componente como etiqueta. Se puede hacer de dos maneras*/}
@@ -15,7 +24,8 @@
             <FirstComponent />
           {/*props: atributos con la información que yo necesite*/} 
             <SecondComponent title="Title from app.js" newAttr={15}/>
-            <ThirdComponent />
+            <ThirdComponent category="electronica" products={ejemplo.electronica}/>
+            <ThirdComponent category="alimentacion" products={ejemplo.alimentacion}/>
         </div>
       );
     }
