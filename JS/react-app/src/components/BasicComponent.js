@@ -43,7 +43,7 @@ function ThirdComponent({category, products}) {
     <>
       <h1>I am the THIRD component, a list of {category}</h1>
       {/*aplicamos desestructuración en el map (recordar corchetes siempree*/}
-      <ol>{products.map(({id, producto, precio}) => {
+      <ul>{products.map(({id, producto, precio}) => {
         /*necesitamos darle un key al resultado iterable (en este caso li) y tiene que ser único (podemos usar el id o  una suma de propiedades)*/
         return (
         <li key={id + producto}>
@@ -52,7 +52,7 @@ function ThirdComponent({category, products}) {
         </li>)
       })
       }
-      </ol>
+      </ul>
 
     </>
   )
