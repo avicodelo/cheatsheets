@@ -1,7 +1,7 @@
 **Enlaces de interés
     js13kgames: competición de videojuegos de HTML5 (no puede pesar más de 13KB). Se hace del 13 de ago al 13 de sep
     electronjs: hacer aplicaciones de escritorio en HTML5
-
+    chart.js: importar gráficos
 
 **Conceptos generales
     Terminal / Consola : Entorno de entrada/salida de texto, ejecutada por el programa konsola
@@ -148,9 +148,12 @@
 **REACT
     npx create-react-app "nombre_proyecto": crea el entorno de React par comenzar con el proyecto (nombre del proyecto sin mayúsculas ni espacios)
     cd "nombre_proyecto": nos lleva a la ruta de nuestro proyecto
-    npm stat: arrancamos el servidor virtual
+    npm start: arrancamos el servidor virtual
+    npm install: cuando clono un repo de react que no tiene node_modules y quiero descargarlos (coge la info del fichero json)
+    npm install bootstrap: instala el paquete de bootstrap en nuestro proyecto
+    npm install react-router-dom: descargar el gestor de rutas de react
+    npm run build: monta la carpeta de proyecto lista para subirla al servidor
 
-    npm install: cuando clono un repo de react que no tiene node_modules
 
 **Guía comandos Markdown
     

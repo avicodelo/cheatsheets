@@ -1,6 +1,9 @@
 /*-----------------------------CONCEPTOS BÁSICOS DE JS-------------------------------------------*/
 
 
+//Enlace de interés sobre propiedades de arrays: https://doesitmutate.xyz
+
+
 /*Diferencia entre propiedad y método
     propiedad: es una característica del objeto y el output es un dato
     método: es una función del objeto y el output es una acción. Al ser una función tiene que ir seguido de paréntesis*/

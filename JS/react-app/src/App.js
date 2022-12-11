@@ -4,10 +4,18 @@
 //comando import con nombre de función       //función from seguida de la ruta (en la ruta, el punto indica el directorio actual. Sin el punto busca en "node_modules")
 import FirstComponent from './components/BasicComponent';
 import './App.css';
+import LogicalComponent from './components/LogicalComponent';
+import Router from "./Router";
 //Al importar funciones que no tengan un "export default" hay que hacerlo en forma de objeto
 import { SecondComponent, ThirdComponent } from "./components/BasicComponent";
-import LogicalComponent from './components/LogicalComponent';
-import StateHook from './components/StateHook';
+import StateHook, {ContextHook, EffectHook} from './components/Hooks';
+import { useState} from "react";
+
+//useContect
+  //1)Creamos un context (e importamos el hook de react). 
+  //Se dejan corchetes vacíos (es el dato que lanza si intentamos usar un contexto en un elemento que no está incluido)
+  import { createContext } from 'react';
+  export const generalContext = createContext({});
 
 function App() {
   const ejemplo = {
@@ -20,8 +28,14 @@ function App() {
       { id: 31, producto: "Ensalada", marca: "Imizurra", precio: 1.30 }
     ]
   };
+
+  //useState
+  const [show, setShow] = useState(true);
+
+  
+
   return (
-    /*El atributo class cambia por className*/
+   /*El atributo class cambia por className*/
     <div className="App">
       {/*Incrustamos nuestro componente como etiqueta. Se puede hacer de dos maneras*/}
       <FirstComponent></FirstComponent>
@@ -32,7 +46,18 @@ function App() {
       <ThirdComponent category="alimentacion" products={ejemplo.alimentacion} />
       <LogicalComponent title="Pruebas lógicas"/>
       <LogicalComponent title="Pruebas lógicas 2" textColor="red"/>
-      <StateHook />
+      
+      {/*2)Para utilizar useContext, tenemos que meter las ramas donde lo queremos usar dentro de un provider.
+      Dentro de la propiedad value pasamos los diferentes elementos */}
+      <generalContext.Provider value={{welcome: "Bienvenido desde un useContext", bye: "Hasta pronto desde context"}}>
+        <StateHook />
+        {show && <EffectHook />}<br/>
+        <button onClick={()=>setShow(!show)}>Show</button>
+        <ContextHook />
+      </generalContext.Provider> 
+      <h1>Enrutado</h1>
+      <Router />
+      
     </div>
   );
 }
