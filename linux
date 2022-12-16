@@ -37,6 +37,7 @@
     echo: Envía un string a la salida estándar (el terminal).
         echo "mensaje" > archivo : elimina todo el texto del archivo y lo cambia por el mensaje
         echo "mensaje" >> archivo : añade el mensaje al texto que tiene el archivo
+    cat: muestra el contenido de un archivo
     clear : Limpia la consola.
     man : Muestra información del comando que le indiquemos a continuación.
     whoami : ver el usuario activo.
@@ -150,9 +151,29 @@
     cd "nombre_proyecto": nos lleva a la ruta de nuestro proyecto
     npm start: arrancamos el servidor virtual
     npm install: cuando clono un repo de react que no tiene node_modules y quiero descargarlos (coge la info del fichero json)
+    npm update: me actualiza la información de npm. Si añadimos --force, fuerza la actualización de toda la info
     npm install bootstrap: instala el paquete de bootstrap en nuestro proyecto
     npm install react-router-dom: descargar el gestor de rutas de react
-    npm run build: monta la carpeta de proyecto lista para subirla al servidor
+    npm install --save-dev gh-pages: descargar solo para desarrolo (no para producción). Descargamos gh-pages para usar GitHub como servidor
+    npm run build: monta la carpeta de proyecto lista para subirla al servidor. Cada vez que modificamos el package.json hay que volver a lanzarlo
+    En package.json -> añadir {"homepage":"url-de-destino"}: será donde se suba nuestro proyecto
+    En package.json -> en "scripts" añadir {"predeploy":"npm run build", "deploy":"gh-pages -d build"}: se le indica "gh-pages" para que se sincronice automáticamente
+    npm run deploy: envía el build a la dependencia indicada en scripts -> deploy. Gracias a "predeploy" siempre me va a hacer build automáticamente
+
+**MySQL
+    
+    sudo apt lamp-server^ (wamp para windows, mamp para windows): instala el paquete de de archivos para usar MySQL (linux-apache-mysql-php,pearl,python)
+    sudo mysql -u root: accede al usuario de mysql establecido en root y con los permisos de root
+    sudo mysql -u root -p: para acceder a mysql y nos pida la contraseña
+    ALTER USER 'root'@'localhost' IDENTIFIED WITH BY "new-password";: cambia la contraseña de mySQL que se encuentra en root@localhost y le establece la que ponemos entre comillas
+    Crear nuevo usuario:    1) CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'contraseña';
+                            2) GRANT ALL ON *.* TO 'usuario'@'localhost';
+
+**PhpMyadmin
+    sudo apt install phpmyadmin: instala el programa phpadmin 
+                (en la confi, para seleccionar apache es necesario darle a barra espaciadora antes de darle a enter. Asegurarnos que hay un asterisco en la opción escogida)
+    En navegador-> localhost/phpmyadmin: nos abre la interfaz de phpmyadmin (introducir usuario y contraseña de la base de datos a gestionar)
+
 
 
 **Guía comandos Markdown
