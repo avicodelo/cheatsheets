@@ -140,6 +140,7 @@
     npx tsc --target es3 (es6...): indicar mediante comandos la versión de js de la transpilación 
     
 **JEST
+
     nmp instal --save-dev jest: descargar jest
     ./node_modules/.bin/jest --init: inicializar jest
     npm test: pasar el test (1ª forma)
@@ -147,6 +148,7 @@
     en el archivo jest.config.js --> buscar la línea 124 y quitar el comentario --> establecer: rootDir:"ruta del archivo"
 
 **REACT
+
     npx create-react-app "nombre_proyecto": crea el entorno de React par comenzar con el proyecto (nombre del proyecto sin mayúsculas ni espacios)
     cd "nombre_proyecto": nos lleva a la ruta de nuestro proyecto
     npm start: arrancamos el servidor virtual
@@ -170,10 +172,24 @@
                             2) GRANT ALL ON *.* TO 'usuario'@'localhost';
 
 **PhpMyadmin
+
     sudo apt install phpmyadmin: instala el programa phpadmin 
                 (en la confi, para seleccionar apache es necesario darle a barra espaciadora antes de darle a enter. Asegurarnos que hay un asterisco en la opción escogida)
     En navegador-> localhost/phpmyadmin: nos abre la interfaz de phpmyadmin (introducir usuario y contraseña de la base de datos a gestionar)
 
+**MongoDB
+
+    wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | sudo tee /usr/share/keyrings/mongodb.gpg > /dev/null: paso 1 para instalación
+    echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list: paso 2 para instalación
+    sudo apt update: paso 3 para instalación
+    sudo apt install mongodb-org: paso 4 para instalación
+    
+    Si falla mongo, usar estos comandos:
+        sudo service mongod stop
+        sudo apt-get purge mongodb-org*
+        sudo rm -r /var/log/mongodb
+        sudo rm -r /var/lib/mongodb
+        sudo apt-get install -y mongodb-org
 
 
 **Guía comandos Markdown
