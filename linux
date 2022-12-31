@@ -2,6 +2,7 @@
     js13kgames: competición de videojuegos de HTML5 (no puede pesar más de 13KB). Se hace del 13 de ago al 13 de sep
     electronjs: hacer aplicaciones de escritorio en HTML5
     chart.js: importar gráficos
+    https://regexr.com: practicar regular expresions
 
 **Conceptos generales
     Terminal / Consola : Entorno de entrada/salida de texto, ejecutada por el programa konsola
@@ -16,7 +17,6 @@
     apt: gestor de paquetes de linux
     npm: gestor de paguetes de nodejs
     npx: similar a npm pero con lógica (ejecutar acciones automáticas...)
-    node "ruta_de_archivo_js": ejecuta el archivo js en la consola
     yarn: gestor de paquetes alternativo a npm (no utiliza nodejs)
 
 **Comandos básicos
@@ -114,6 +114,28 @@
     $ git remote add upstream <URL> : añade una conexión nueva a un repo diferente
     $ git fetch upstream : carga la información de la fuente upstream
     $ git merge upstream/main : une la información cargada de upstream con mi main
+
+**REGEX
+    . : cualquier cosa
+    * : que contenga todos los caracteres indicados
+    ^ : que empieze por
+    $ : que termine por
+    []: que esté en rango 
+
+**NodeJS
+    node: ejecuta la shell de node
+    dentro de shell de node -> require("cripto").randomBytes(64).toString("hex"): crea caracteres aleatorios útiles para usarlos como semilla
+    npm init: inicia el proyecto y me crea un json. Datos a indicar -> nombre de paquete, versión de mi proyecto, descripción, 
+            punto de entrada (archivo principal que se cargará primero. ej. index.json)...
+    npm i express: instala express y lo añade a mis dependencias
+    npm i --save-dev nodemon: instala nodemon y lo añade a mis dev dependecies
+    node "ruta_de_archivo_js": ejecuta el archivo js en la consola
+    scripts:{"start":"nodemon nombre_archivo"}: hacerlo en package.json para ejecutar con npm start el código
+    npm i mongoose: instala mongoose
+    npm i mongoose-unique-validator: instala un validador del error de tipo "unique"
+    npm i ramda: librería útil de js (se puede utilizar para delimitar valores aceptados en un request)
+    npm i bcrypt: instalar bcrypt (encriptado de contraseñas)
+    npm i jsonwebtoken: instalar el paquete para implementar el token de verificación de sesión
 
 **Sass
 

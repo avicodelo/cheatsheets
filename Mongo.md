@@ -57,9 +57,9 @@
     - Unido al find(), ordena por la propiedad indicada y le otorgamos el orden con la prioridad (este caso 1)
         db.collection_name.find().sort({name: 1})
 
-### COUNT
+### COUNTDOCUMENTS
     - Contar el número de registros que coinciden
-        db.collection_name.count({age: 20})
+        db.collection_name.countDocuments({age: 20})
 
 ### LIMIT
     - Limita la cantidad de registros que devuelve
@@ -79,7 +79,12 @@
 
 ### $SIZE
     - Comparar tamaño de un array
-        db.chatData.find({members: {$size: 2}})
+        db.collection_name.find({members: {$size: 2}})
+
+### $ELEMMATCH
+    - Comprobar si algún elemento coincide con lo la propiedad indicada (que esté en miembros y sea de grupo 2 o mayor)
+        db.collection_name.find({members: {$elemMatch: {group:{$gte : 2}}}})
+        
 
 ### $COMPARADORES
     - $gt (greater than)
@@ -121,22 +126,19 @@
     - Acceder a un array con propiedades
         db.collection_name.update({name : "Curro"}, {$set{trolley : products[1]._id}})
 
+    - Acceder a una posición de un array (en el ejemplo, posición 2)
+        db.collection_name.find({trolley.1 : "headphones"})
+
 ### Volcar y guardar base de datos
     - Copiar base datos
         mongodump -h <host:port> -d <folder_name> --o <route_directory_where_save>
             ej: mongodump -h 127.0.0.1:27017 -d users --out ~/documents
 
-    - Importar la base de datos entera
+    - Importar la base de datos entera. Formato bson
         mongorestore -h <host:port> <directory or file to restore>
             ej: mongorestore -h 127.0.0.1:27017 ~/folder/database_directory
 
-    - Importar colecciones dentro de una base de datos
+    - Importar colecciones dentro de una base de datos. Formato json
         mongoimport --db <dbName> --collection <collection_name> --file <fileName.json>
-            ej: mongoimport --db <carShop> --collection <cars> --file cars.json
+            ej: mongoimport --db carShop --collection cars --file cars.json
 
-### REGEX
-    - . = cualquier cosa
-    - * = que contenga todos los caracteres indicados
-    - ^ = que empieze por
-    - $ = que termine por
-    - [] = que esté en rango 
