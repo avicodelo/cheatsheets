@@ -136,6 +136,8 @@
     npm i ramda: librería útil de js (se puede utilizar para delimitar valores aceptados en un request)
     npm i bcrypt: instalar bcrypt (encriptado de contraseñas)
     npm i jsonwebtoken: instalar el paquete para implementar el token de verificación de sesión
+    npm i cors: instalar gestor de cors
+    sudo sysctl fs.inotify.max_user_watches=582222 && sudo sysctl -p: quitar problemas de "watch"
 
 **Sass
 
