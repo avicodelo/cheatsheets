@@ -1,8 +1,12 @@
+
+
+
 **Enlaces de interés
     js13kgames: competición de videojuegos de HTML5 (no puede pesar más de 13KB). Se hace del 13 de ago al 13 de sep
     electronjs: hacer aplicaciones de escritorio en HTML5
     chart.js: importar gráficos
     https://regexr.com: practicar regular expresions
+    whatsmydns: página web para comprobar DNS
 
 **Conceptos generales
     Terminal / Consola : Entorno de entrada/salida de texto, ejecutada por el programa konsola
@@ -19,7 +23,7 @@
     npx: similar a npm pero con lógica (ejecutar acciones automáticas...)
     yarn: gestor de paquetes alternativo a npm (no utiliza nodejs)
 
-**Comandos básicos
+**Comandos consola
 
     cd : Cambia de un directorio a otro (ruta relativa vs. ruta absoluta)
     cd .. : cambia al fichero de la ruta anterior
@@ -33,11 +37,17 @@
     chown <user:group> <fichero o directorio>: cambiar el usuario y el grupo propietario para un fichero o 
                                                 directorio.
     ls : Lista los nombres de los ficheros.
+    adduser "nombre usuario" "nombre grupo": añade un usuario a un grupo
+    pipe ( | ): es una barra horizontal e indica que al comando de la derecha le pasamos los datos del comando de la izquierda
     <comando> | less : Visualiza el fichero paginado (más cómodo).
+    grep "string": busca en un archivo el string entre comillas (ej. cat test.txt | grep "a")
     echo: Envía un string a la salida estándar (el terminal).
         echo "mensaje" > archivo : elimina todo el texto del archivo y lo cambia por el mensaje
         echo "mensaje" >> archivo : añade el mensaje al texto que tiene el archivo
+        echo "mensaje" 2> archivo : guarda los mensajes de error en el archivo
     cat: muestra el contenido de un archivo
+    tail: se muestra el archivo en tiempo real
+        tail -fn 200 "archivo": muestra las últimas 200 líneas del archivo indicado
     clear : Limpia la consola.
     man : Muestra información del comando que le indiquemos a continuación.
     whoami : ver el usuario activo.
@@ -52,6 +62,9 @@
     cal: Muestra un calendario.
     exit : salir de la sesión actual o del terminal
     nano : abre un editor de documentos y se puede modificar el contenido
+    du -h "archivo": muestra el peso del archivo. Si no indicamos el archivo, nos dice el tamaño de la ruta en la que estamos
+    df: indica los espacios de almacenamiento del sistema
+    ln: enlaces simbólicos. Archivos que apuntan a otros archivos.
     ctrl+shift+t : abre una pestaña nueva de la consola
     history : abre el historial de comandos usados en la consola
     history | grep npx: nos busca en el historial los comandos que tengan el string indicado (npx en este caso)
@@ -60,6 +73,23 @@
     [comando] --help : abre ayuda para recordarnos las opciones del comando
     host "url(sin www.)" : muestra la IP de la url
     curl: transfiere datos desde o hacia un servidor
+    chmod 777 "nombre archivo": cambia permisos en un archivo/carpeta. El código numérico hace referencia a qué permisos cambiar 
+    ssh "usuario@servidor": acceso al usuario x del servidor y
+    ssh-keygen: genera una clave ssh
+        ssh-keygen -t rsa -b 4096: sobrecarga con -t para indicar el algoritmo y -b para indicar el tipo de vueltas de ese algoritmo
+    crontab -e: programador de tareas
+    systemctl list-units --type=service: muestra una lista con todos los daemons (programas que se ejecutan en segundo plano)
+    service: hace lo mismo que el comando anterior
+    ping "dirección del servidor": establece comunicación con el servidor y lanza la dirección ip
+
+*Servidores
+    ovhcloud --> servidor
+    s3 --> guardado de imágenes
+    wix --> dominioss
+    axarnet --> servidor dedicado en España
+    htop: muestra datos de los core del servidor
+    /etc/apache2/sites-available --> $nano 000-default.conf: abre la configuración de apache respecto a las páginas disponibles
+    sudo service apache2 reload: recarga apache y es necesario después de cambiar cualquier configuración
 
 **Establecer un alias:
 
@@ -138,6 +168,16 @@
     npm i jsonwebtoken: instalar el paquete para implementar el token de verificación de sesión
     npm i cors: instalar gestor de cors
     sudo sysctl fs.inotify.max_user_watches=582222 && sudo sysctl -p: quitar problemas de "watch"
+
+**PhP
+    sudo apt install composer: instala composer (similar a npm pero para php)
+    composer init: iniciar composer (similitudes composer = npm, composer.json = package.json, node_modules = vendor)
+    composer install: descargar dependencias de composer (al clonar un proyecto con php)
+    composer require --dev phpunit/phpunit: descargar dependencias de php
+    ./vendor/phpunit/phpunit/phpunit "ruta archivo" : ejecutar un archivo php
+    ./vendor/phpunit/phpunit/phpunit "ruta archivo" --testdox: ejecutar un archivo php con test y lanza un resumen del resultado
+    
+
 
 **Sass
 
