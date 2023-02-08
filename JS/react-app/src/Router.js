@@ -27,7 +27,11 @@ export default function Router() {
           <Route index element={<Index />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/record" element={<Record />}>
-            <Route path=":user" element={<Record />} />
+
+          {/*Anidado de rutas: 
+            Si element es diferente, hay que establecer un index:
+  ej: <Route index element={<ElementoPrincipal />} /> */}
+            <Route path=":user" element={<Record />}/>
           </Route>
 
           {/* Así se indica una página que no existe */}

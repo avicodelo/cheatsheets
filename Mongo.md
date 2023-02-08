@@ -50,7 +50,7 @@
       El _id lo mostrará por defecto si no establecemos false
         db.collection_name.find({name: "Curro"}, {name: true , _id: false})
 
-    - Si tenenemos un array y queremos saber si contien algo, tratarlo como una propiedad normal (contacts es un array).
+    - Si tenenemos un array y queremos saber si contiene algo, tratarlo como una propiedad normal (contacts es un array).
         db.users.find({contacts: allMembers[1]._id})
 
 ### SORT

@@ -167,6 +167,7 @@
     npm i bcrypt: instalar bcrypt (encriptado de contraseñas)
     npm i jsonwebtoken: instalar el paquete para implementar el token de verificación de sesión
     npm i cors: instalar gestor de cors
+    npm i nodemailer: instalar nodemailer para el envío de correos
     sudo sysctl fs.inotify.max_user_watches=582222 && sudo sysctl -p: quitar problemas de "watch"
 
 **PhP
@@ -219,6 +220,7 @@
     npm install: cuando clono un repo de react que no tiene node_modules y quiero descargarlos (coge la info del fichero json)
     npm update: me actualiza la información de npm. Si añadimos --force, fuerza la actualización de toda la info
     npm install bootstrap: instala el paquete de bootstrap en nuestro proyecto
+    npm i sweetalert: insala el personalizador de alerts
     npm install react-router-dom: descargar el gestor de rutas de react
     npm install --save-dev gh-pages: descargar solo para desarrolo (no para producción). Descargamos gh-pages para usar GitHub como servidor
     npm run build: monta la carpeta de proyecto lista para subirla al servidor. Cada vez que modificamos el package.json hay que volver a lanzarlo
