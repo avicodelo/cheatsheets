@@ -11,7 +11,7 @@ import { SecondComponent, ThirdComponent } from "./components/BasicComponent";
 import StateHook, {ContextHook, EffectHook} from './components/Hooks';
 import { useState} from "react";
 
-//useContect
+//useContext
   //1)Creamos un context (e importamos el hook de react). 
   //Se dejan corchetes vacíos (es el dato que lanza si intentamos usar un contexto en un elemento que no está incluido)
   import { createContext } from 'react';
