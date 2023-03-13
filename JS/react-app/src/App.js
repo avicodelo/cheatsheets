@@ -8,7 +8,7 @@ import LogicalComponent from './components/LogicalComponent';
 import Router from "./Router";
 //Al importar funciones que no tengan un "export default" hay que hacerlo en forma de objeto
 import { SecondComponent, ThirdComponent } from "./components/BasicComponent";
-import StateHook, {ContextHook, EffectHook} from './components/Hooks';
+import StateHook, {ContextHook, EffectHook, ReducerHook} from './components/Hooks';
 import { useState} from "react";
 
 //useContext
@@ -57,7 +57,8 @@ function App() {
       </generalContext.Provider> 
       <h1>Enrutado</h1>
       <Router />
-      
+      <br></br>
+      <ReducerHook />
     </div>
   );
 }
