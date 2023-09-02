@@ -135,8 +135,8 @@
             ej: mongodump -h 127.0.0.1:27017 -d users --out ~/documents
 
     - Importar la base de datos entera. Formato bson
-        mongorestore -h <host:port> <directory or file to restore>
-            ej: mongorestore -h 127.0.0.1:27017 ~/folder/database_directory
+        mongorestore -h <host:port> <directory or file to restore> -d <nombre de la base de datos>
+            ej: mongorestore -h 127.0.0.1:27017 ./project/assistationDB -d assistationDB
 
     - Importar colecciones dentro de una base de datos. Formato json
         mongoimport --db <dbName> --collection <collection_name> --file <fileName.json>
