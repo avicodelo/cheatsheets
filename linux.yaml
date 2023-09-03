@@ -171,6 +171,11 @@
     npm i nodemailer: instalar nodemailer para el envío de correos
     sudo sysctl fs.inotify.max_user_watches=582222 && sudo sysctl -p: quitar problemas de "watch"
 
+**YARN 
+    curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -: instal de yarn key
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list: enable the yarn repo
+    sudo apt update && sudo apt install yarn: update the cache and install yarn
+
 **PhP
     sudo apt install composer: instala composer (similar a npm pero para php)
     composer init: iniciar composer (similitudes composer = npm, composer.json = package.json, node_modules = vendor)
@@ -215,7 +220,7 @@
 
 **REACT
 
-    npx create-react-app "nombre_proyecto": crea el entorno de React par comenzar con el proyecto (nombre del proyecto sin mayúsculas ni espacios)
+    npm create vite@latest <nombre-de-mi-proyecto>: crea el entorno de React par comenzar con el proyecto (nombre del proyecto sin mayúsculas ni espacios)(es necesario tener nodejs)
     cd "nombre_proyecto": nos lleva a la ruta de nuestro proyecto
     npm start: arrancamos el servidor virtual
     npm install: cuando clono un repo de react que no tiene node_modules y quiero descargarlos (coge la info del fichero json)

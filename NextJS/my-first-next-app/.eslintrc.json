@@ -1,0 +1,4 @@
+//Agregamos la ruta del paquete de configuración descargado para ESLint
+{
+  "extends": ["./node_modules/standard/eslintrc.json", "next/core-web-vitals"]
+}
