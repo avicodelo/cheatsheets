@@ -12,7 +12,12 @@ const links = [{
 {
     label: "About",
     route: "/about"
-}]
+},
+{
+    label: "Posts",
+    route: "/posts"
+}
+]
 
 import React from 'react'
 
