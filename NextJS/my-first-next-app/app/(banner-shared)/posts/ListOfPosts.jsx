@@ -24,7 +24,6 @@ export default async function ListOfPosts() {
                     {/*Podemos crear un link para que nos lleve a la información del post */}
                     <Link href={`/posts/${post.id}`}>
                         <h2>{post.title}</h2>
-                        <p>{post.body}</p>
                     </Link>
                     <br></br>
                     <LikeButton id={post.id} />
