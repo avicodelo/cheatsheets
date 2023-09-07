@@ -4,6 +4,7 @@
 //Importa el css general para toda la app
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { myFont } from "./components/Font"
 
 //Component imports
 import Navigation from './components/Navigation'
@@ -19,8 +20,8 @@ export const metadata = {
 //el prop children proviene de page.jsx
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
+    <html lang='es'>
+      <body className={`${inter.className} ${myFont.variable}`}>
 
         <Navigation />
 

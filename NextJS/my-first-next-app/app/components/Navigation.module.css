@@ -6,3 +6,10 @@
 .menu {
     display: flex;
 }
+
+
+.listItem {
+    font-size: 20px;
+    font-family: var(--alluraFont);
+    list-style: none;
+  }

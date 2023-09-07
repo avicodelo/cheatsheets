@@ -28,9 +28,9 @@ export default function Navigation() {
                 <ul className={styles.menu}>
                     {/* Utilizamos la constante de links para crear el menu */}
                     {links.map(({ label, route }) => (
-                        <ol key={label + route}>
+                        <li key={label + route} className={styles.listItem}>
                             <Link href={route}>{label}</Link>
-                        </ol>
+                        </li>
                     ))}
                 </ul>
             </nav>

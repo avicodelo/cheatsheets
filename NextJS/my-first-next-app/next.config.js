@@ -5,7 +5,11 @@ const nextConfig = {
   experimental: {
     appDir: true
   },
-  reactStrictMode:true
+  reactStrictMode:true,
+  images: {
+    domains: ['api.dicebear.com'],
+    dangerouslyAllowSVG: true,
+  },
 
 
 }

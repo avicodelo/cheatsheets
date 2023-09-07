@@ -1,3 +1,5 @@
+Documentación oficial: https://nextjs.org/
+
 # Comandos generales
 
 ## Requisitos 
@@ -26,7 +28,7 @@ nodejs, npm, yarn
 1. Dentro de la carpeta "App" (se puede crear también fuera), creamos una carpeta "components"
 2. Dentro de "components" creamos los archivos que queramos (nunca con el nombre "page.jsx" ya que lo transformaríamos en una ruta). Ej: "navigation.js" 
 
-## Fetching de datos en componentes (ver ListOfPosts)
+## Fetching de datos en componentes (ver ListOfPosts.jsx)
 Todo componente dentro de la carpeta "app" se ejecuta por defecto en el servidor (react server component) y no en el cliente, por lo tanto, todo lo que se importe se ejecutará primero en el servidor y posteriomente se presentará en el cliente. 
 **No se puede hacer uso de hooks ya que éstos pertenecen a la parte del cliente**
 1. Se crea un componente
@@ -39,7 +41,7 @@ Todo componente dentro de la carpeta "app" se ejecuta por defecto en el servidor
 4. Se transforma la función default en asíncrona con "async"
 5. Se llama a la función creada anteriormente con un "await"
 
-## Renderizar componentes en la parte de cliente (ver LikeButton)
+## Renderizar componentes en la parte de cliente (ver LikeButton.jsx)
 Tener en cuenta que sólo es conveniente establecer este ajuste en los componentes más pequeños para que se ahorre tiempo de carga
 1. Poner un string en la primera línea: 'use client' (**importante con comilla simple**)
 
@@ -62,3 +64,16 @@ Tener en cuenta que sólo es conveniente establecer este ajuste en los component
 1. Crear un fichero con el nombre entre paréntesis. Ej. "(banner-shared)"
 2. Introducir las rutas que queremos agrupar en el fichero
 3. Poner los componentes y layout que queremos compartir entre ambas, en la raíz del fichero
+
+## Importar fuentes (ver Font.js)
+1. Archivo donde queremos implementar: import { nombre-de-la-fuente } from "next/font/google"
+2. Guardar la fuente en una constante y especificar opciones
+3. Usar la fuente directamente dentro de un className:
+    1. Si NO especificamos variable dentro de opciones: className = {font.className}
+    2. Si tenemos una variable (en el body general): className = {font.variable}
+        Con esta confi ya podríamos usar la variable en el CSS
+
+## Uso de imágenes
+1. Importar "Image" en el archivo a aplicar
+2. Usar Image formato html. Obligatorio indicar width, height y alt
+3. Configurar el dominio en el archivo "next.config.js"
