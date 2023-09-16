@@ -3,7 +3,11 @@ Documentación oficial: https://nextjs.org/
 # Comandos generales
 
 ## Requisitos 
-nodejs, npm, yarn
+recomendados: nodejs, npm, yarn
+recursos externos:
+    - tailwind CSS: para incorporar librería de CSS
+    - supabase: nos ofrece Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, Storage, and Vector embeddings
+
 
 ## Iniciar el proyecto
 1. npx create-next-app@latest: inicia la app
@@ -13,6 +17,19 @@ nodejs, npm, yarn
 
 ## Configurar ESlint
 1. npm install standard -D: instala el paquete con las reglas preestablecidas
+2. npx eslint --init: crea el json basándose en preguntas de configuración
+    1. Para desactivar las reglas que menos se utilizan, añadir lo siguiente en eslint.json
+        "rules": {
+        "react/prop-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-misused-promises": "off"
+        }
+    2. Para indicar el parser añadir
+        "parserOptions": {
+            "project": "./tsconfig.json"
+        } 
 
 ## Crear rutas y subrutas estáticas
 1. Crear un archivo con el nombre "page.jsx" (será el home)

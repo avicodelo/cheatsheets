@@ -72,6 +72,9 @@
     history -c : borra el historial de comandos de la consola
     man [comando] : abre el manual del comando que necesitemos de manera detallada
     [comando] --help : abre ayuda para recordarnos las opciones del comando
+    sudo netstat -tupln: muestra todos los procesos que se están ejecutando en los puertos
+    kill -l: Muestra las acciones que se pueden hacer con kill
+    sudo kill -9 <PID>: mata el proceso con el PID indicado
     host "url(sin www.)" : muestra la IP de la url
     curl: transfiere datos desde o hacia un servidor
     chmod 777 "nombre archivo": cambia permisos en un archivo/carpeta. El código numérico hace referencia a qué permisos cambiar 
@@ -169,6 +172,7 @@
     npm i jsonwebtoken: instalar el paquete para implementar el token de verificación de sesión
     npm i cors: instalar gestor de cors
     npm i nodemailer: instalar nodemailer para el envío de correos
+    npm i uuid: intalar creador de uuids
     sudo sysctl fs.inotify.max_user_watches=582222 && sudo sysctl -p: quitar problemas de "watch"
 
 **YARN 
