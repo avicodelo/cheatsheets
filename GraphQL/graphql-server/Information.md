@@ -19,3 +19,12 @@ Se va a utilizar graphQl con la librería de ApolloQL server
 4. Poner el servidor a la "escucha" con "startStandaloneServer"
 5. "node index.js": utilizar el servidor levantado 
     **si queremos que se actualice automáticamente: npx nodemon index.js**
+
+## Hacer request a API
+1. npm install @apollo/datasource-rest: instala el paquete necesario para las peticiones
+2. Crear un archivo donde recogemos los datos de la API a utilizar
+3. Incluir en las Defs los nuevos datos que vamos a recoger y la nueva query
+4. Añadir en los dataSources en el servidor con la caché
+
+## Uso de apollo-client para comunicar con graphql
+1. npm install @apollo/client graphql: instalamos los paquetes de apollo/client

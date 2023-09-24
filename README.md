@@ -2,14 +2,19 @@
 
 ## Objective
 
-My objective is to gather every command that I learn in one sheet. I will maintain this repository as public one in order to allow everybody to check it.
+My objective is to gather every command that I learn in a repository. I will maintain this repository as public one in order to allow everybody to check it.
 
 ### Expected sheets 
 - HTML: will include HTML tags.
 - CSS: include a lot of features with its own explanation
 - Linux: will include Linux terminal commands, GIT commands and communication between GIT & GITHUB commands.
-- JS: will include two JavaScript sheets: 1) Explaining basics commands and logical expressions 2) Controling the DOM and its events 
-- pHp: will include pHp expresions
+- JS: will include: 1) Basics commands and logical expressions 2) Control the DOM and its events 3)Explanation of React
+- PHP: will include pHp expresions
+- NextJS: Introduction of structure and specifics
+- NodeJS: A whole app combined with a mongoDB
+- Mongo and MySQL: Generic commands to use this Data Bases
+- GraphQL: Includes the server and client sides using this lenguage
+
 
 ### Advertisement
 
