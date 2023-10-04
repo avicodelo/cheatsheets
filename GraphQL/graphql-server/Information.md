@@ -28,3 +28,9 @@ Se va a utilizar graphQl con la librería de ApolloQL server
 
 ## Uso de apollo-client para comunicar con graphql
 1. npm install @apollo/client graphql: instalamos los paquetes de apollo/client
+2. Creamos los esquemas para las queries y las mutations y las implementamos
+
+## Conexión con MongoDB
+1. Crear los models necesarios
+2. Establecer la conexión con la base de datos
+3. Importar la conexión en el index.js

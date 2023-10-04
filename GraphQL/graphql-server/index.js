@@ -5,6 +5,10 @@ import { GraphQLError } from "graphql"
 import { v1 as uuid } from "uuid"
 import UsersAPI from "./users-api.js"
 
+//Importamos la conexion a mongo
+import "./mongo/db.js"
+import Person from "./mongo/models/person.js"
+
 //Datos a recuperar por GraphQL
 const persons = [
     {
@@ -105,20 +109,23 @@ const typeDefs = `#graphql
 const resolvers = {
     //Definimos los pasos para obtener las queries
     Query: {
-        
+
+        /*DATOS DESDE REST API*/
         //Recuperamos los users a través de la api creada usando los "dataSources" previamente definidos
         usersFromRest: async (_root, _args, { dataSources }) => {
             return dataSources.usersAPI.getUser();
-          },
+        },
 
-          /* SEGUNDA OPCIÓN DE FETCHING
-           usersFromRest: async () => {
-            const allUsers = await fetch("https://jsonplaceholder.typicode.com/users").then(res=>res.json())
-            console.log(allUsers);
-            return allUsers
+        /* SEGUNDA OPCIÓN DE FETCHING
+         usersFromRest: async () => {
+          const allUsers = await fetch("https://jsonplaceholder.typicode.com/users").then(res=>res.json())
+          console.log(allUsers);
+          return allUsers
 
-        }, */
+      }, */
 
+        /*DATOS DESDE STATIC JSON EN EL DOCUMENTO */
+        /* 
         personCount: () => persons.length,
 
         //Vamos a definir la query para filtrar usando el enum (es opcional su uso ya que no usamos ! )
@@ -134,11 +141,28 @@ const resolvers = {
         findPersonById: (root, args) => {
             const { id } = args
             return persons.find(person => person.id === id)
+        } 
+        */
+
+        /*DATOS DESDE BASE DE DATOS COMO MONGODB */
+        personCount: async () => Person.collection.countDocuments(),
+
+        allPersons: async (root, args) => {
+
+            return Person.find({})
+        },
+
+        findPersonById: async (root, args) => {
+            const { id } = args
+            return Person.findById(id)
         }
     },
 
     //Definimos los pasos para obtener las Mutations
     Mutation: {
+
+        /*MUTATIONS A STATIC JSON EN EL DOCUMENTO */
+        /*
         addPerson: (root, args) => {
             //Le podemos añadir lógica para que arroje un error personalizado
             if (persons.find(p => p.name === args.name)) {
@@ -146,7 +170,7 @@ const resolvers = {
                     {
                         extensions: {
                             code: 'WRONG_USER_INPUT',
-                            /* Se pueden añadir campos personalizados dentro de extensions*/
+                            //Se pueden añadir campos personalizados dentro de extensions
                             invalidArgs: args.name
                         }
                     })
@@ -164,10 +188,10 @@ const resolvers = {
                 }
                 return person
             })
-            
+
             if (personIndex === undefined) return null
             return updatePerson[personIndex]
-            /*OTRA OPCION
+            //OTRA OPCION
 
                 const personIndex = persons.findIndex(p => p.city === args.city)
                 if (personIndex === -1) return null            
@@ -175,8 +199,19 @@ const resolvers = {
                 const updatedPerson = {...person, city: args.city}
                 persons[personIndex] = updatedPerson
                 return updatedPerson
-            */
+        }
+        */
 
+        /*MUTATIONS A BASE DE DATOS MONGODB */
+        
+        addPerson: (root, args) => {
+            const person = new Person({...args})
+            return person.save()
+        },
+
+        editCity: (root, args) => {
+            const personUpdated = Person.findOneAndUpdate({name: args.name}, {city: args.city})
+            return personUpdated.save()
         }
     },
 
@@ -208,22 +243,22 @@ const server = new ApolloServer({
 
 //Se levanta el servidor y se pone a la escucha.
 // 
-  const { url } = await startStandaloneServer(server, {
+const { url } = await startStandaloneServer(server, {
     context: async () => {
         //Se define la caché del servidor para hacer uso de ella en las apis
-      const { cache } = server;
-      return {
-        //Pasamos la caché a cada fuente.
-        //Se definen los dataSources, uno por cada API
-        dataSources: {
-          usersAPI: new UsersAPI({ cache })
-        },
-    
-      };
+        const { cache } = server;
+        return {
+            //Pasamos la caché a cada fuente.
+            //Se definen los dataSources, uno por cada API
+            dataSources: {
+                usersAPI: new UsersAPI({ cache })
+            },
+
+        };
     },
-  });
-  
-  console.log(`🚀  Server ready at ${url}`);
+});
+
+console.log(`🚀  Server ready at ${url}`);
 
 /* server.listen().then(({ url }) => {
     console.log(`Server ready at ${url}`)
