@@ -3,7 +3,8 @@ import { ApolloServer } from "@apollo/server"
 import { startStandaloneServer } from "@apollo/server/standalone"
 import { GraphQLError } from "graphql"
 import { v1 as uuid } from "uuid"
-import UsersAPI from "./users-api.js"
+import UsersAPI from "./external-users-api.js"
+import { userTypeDefs, userResolvers, userContext } from "./user-login.js"
 
 //Importamos la conexion a mongo
 import "./mongo/db.js"
@@ -149,7 +150,9 @@ const resolvers = {
 
         allPersons: async (root, args) => {
 
-            return Person.find({})
+            if (!args.alias) return Person.find({})
+            //Filtramos si la persona tiene alias o no
+            return Person.find({ alias: { $exists: args.alias === "YES" } })
         },
 
         findPersonById: async (root, args) => {
@@ -203,15 +206,15 @@ const resolvers = {
         */
 
         /*MUTATIONS A BASE DE DATOS MONGODB */
-        
+
         addPerson: (root, args) => {
-            const person = new Person({...args})
+            const person = new Person({ ...args })
             return person.save()
         },
 
-        editCity: (root, args) => {
-            const personUpdated = Person.findOneAndUpdate({name: args.name}, {city: args.city})
-            return personUpdated.save()
+        editCity: async (root, args) => {
+            const personUpdated = await Person.findOneAndUpdate({ name: args.name }, { city: args.city })
+            return personUpdated
         }
     },
 
@@ -237,13 +240,15 @@ const resolvers = {
     resolvers: resoluciones (nombre_de_variable inventado para los resolvers)
 }*/
 const server = new ApolloServer({
-    typeDefs,
-    resolvers,
+    typeDefs: [typeDefs, userTypeDefs],
+    resolvers: [resolvers, userResolvers],
 });
 
-//Se levanta el servidor y se pone a la escucha.
-// 
+//Se levanta el servidor y se pone a la escucha. 
 const { url } = await startStandaloneServer(server, {
+    /* Context es una función que se va a ejecutar cada vez que haya una request a graphql 
+    y a cuyos datos se puede acceder en cualquier momento.*/
+
     context: async () => {
         //Se define la caché del servidor para hacer uso de ella en las apis
         const { cache } = server;
@@ -256,6 +261,8 @@ const { url } = await startStandaloneServer(server, {
 
         };
     },
+    //Puede haber varios context
+    context: userContext
 });
 
 console.log(`🚀  Server ready at ${url}`);

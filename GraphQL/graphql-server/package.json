@@ -13,6 +13,7 @@
     "@apollo/datasource-rest": "^6.1.1",
     "@apollo/server": "^4.9.3",
     "graphql": "^16.8.0",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.5.3",
     "mongoose-unique-validator": "^4.0.0",
     "uuid": "^9.0.1"
