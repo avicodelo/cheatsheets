@@ -1,4 +1,5 @@
 import UserLoged from "./mongo/models/user.js"
+import Person from "./mongo/models/person.js"
 import jwt from "jsonwebtoken"
 import { GraphQLError } from "graphql"
 
@@ -28,6 +29,10 @@ export const userTypeDefs = `#graphql
             userName: String!
             password: String!
         ): Token
+
+        addFriend(
+            name: String!
+        ): UserLoged
     }
 
 `
@@ -69,6 +74,25 @@ export const userResolvers = {
                 value: jwt.sign(userForToken, JWT_SEED)
             }
 
+        },
+
+        addFriend: async (_, args, contextValue) => {
+            const currentUser = contextValue.currentUser
+            if (!currentUser) throw new GraphQLError("Tienes que logearte", {
+                extensions: {
+                    code: 'UNAUTHENTICATED',
+                    http: { status: 401 }
+                }
+            })
+
+            const personToAdd = await Person.findOne({ name: args.name })
+
+            const isFriend = currentUser.friends.find(friend => friend._id === personToAdd._id)
+            if (!isFriend) {
+                currentUser.friends = currentUser.friends.concat(personToAdd)
+            }
+            return currentUser.save()
+
         }
 
     }
@@ -76,7 +100,7 @@ export const userResolvers = {
 
 export const userContext = async ({ req }) => {
     const auth = req ? req.headers.authorization : null
-    if (auth && auth.toLowerCase().startsWith("bearer ")) {
+    if (auth && auth.split(" ")[0].toLowerCase() == "bearer") {
         const token = auth.split(" ")[1]
         const { id } = jwt.verify(token, JWT_SEED)
         const currentUser = await UserLoged.findById(id).populate("friends")
