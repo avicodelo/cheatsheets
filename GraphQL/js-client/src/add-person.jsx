@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 //Importamos los componentes de Apollo para el mutation
-import {gql, useMutation} from "@apollo/client"
+import { gql, useMutation } from "@apollo/client"
 import { GET_ALLPERSONS } from "./persons";
 
 //Creamos el esquema para añadir la persona
@@ -35,7 +35,7 @@ export function AddPerson() {
     name: "",
     surname1: "",
     surname2: "",
-    alias:"",
+    alias: "",
     street: "",
     city: ""
   }
@@ -47,20 +47,35 @@ export function AddPerson() {
   }
 
   //Usamos el Mutation, necesario indicarle un trigger (como en useLazyQuery)
-  const [addNewPerson] = useMutation(ADD_PERSON,
-    {refetchQueries: [GET_ALLPERSONS]}
-    )
+  const [addNewPerson] = useMutation(ADD_PERSON, {
+    refetchQueries: [GET_ALLPERSONS],
+    /* Se pueden actualizar los datos sin hacer un refetch en caso de que queramos optimizar la app 
+      update: (store, response) => {
+      const dataInStore = store.readQuery({ query: GET_ALLPERSONS })
+      store.writeQuery({
+        query: GET_ALLPERSONS,
+        data: {
+          ...dataInStore,
+          allPersons: [
+            ...dataInStore.allPersons,
+            response.data.addPerson
+          ]
+        }
+      }) 
+    }*/
+  }
+  )
 
   //Sends the info to server
   const signUpCustomer = (e) => {
 
-      e.preventDefault()
+    e.preventDefault()
 
-      //Activamos el trigger
-      addNewPerson({variables: signUpData})
+    //Activamos el trigger
+    addNewPerson({ variables: signUpData })
 
-      setSignUpData(initialStateSignUp);
-    
+    setSignUpData(initialStateSignUp);
+
 
   }
 

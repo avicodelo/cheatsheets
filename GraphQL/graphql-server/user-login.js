@@ -59,7 +59,7 @@ export const userResolvers = {
                 throw new GraphQLError("Wrong credentials", {
                     extensions: {
                         code: 'UNAUTHENTICATED',
-                        http: { status: 401 },
+                       /*  http: { status: 401 }, */
 
                     }
                 })
