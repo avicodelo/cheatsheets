@@ -173,6 +173,7 @@
     npm i cors: instalar gestor de cors
     npm i nodemailer: instalar nodemailer para el envío de correos
     npm i uuid: intalar creador de uuids
+    npm i dotenv: instalar dotenv si utilizamos modules (luego importar "dotenv/config")
     sudo sysctl fs.inotify.max_user_watches=582222 && sudo sysctl -p: quitar problemas de "watch"
 
 **YARN 

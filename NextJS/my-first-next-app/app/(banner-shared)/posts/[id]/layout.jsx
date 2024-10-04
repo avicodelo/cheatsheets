@@ -25,7 +25,7 @@ export default async function postSight({ children, params }) {
             </article>
             <Link href={`/posts/${id}/comments`} style={{ color: "blue" }}> Ver comentarios</Link>
 
-            {/* importante incorporar "children" para que todos los recursos subsequentes se carguen */}
+            {/* importante incorporar "children" para que todos los recursos subsecuentes se carguen */}
             {children}
         </div>
     )
